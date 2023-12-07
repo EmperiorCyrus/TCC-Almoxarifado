@@ -20,14 +20,7 @@
    */
   class ModelEntrance{
 
-    private $amount; //Quantidade da entrada
-    private $validity; // Validade do produto
-    private $value; //Valor monetario da carga
-
-    
     private $conn;                         // Conexão com o BD
-    public static  $updade_class = false;  // Status de verificação de propriedade. 
-
 
     /**
      * Contruct responsável em iniciar conexão com o Banco de Dados.

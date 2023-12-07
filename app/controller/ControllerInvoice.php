@@ -32,7 +32,7 @@ class ControllerInvoice
 	{
 		return $this->invoiceModel->delete($id);
 	}
-	
+
 	public function selectAll(): array
 	{
 		return $this->invoiceModel->selectAll();
