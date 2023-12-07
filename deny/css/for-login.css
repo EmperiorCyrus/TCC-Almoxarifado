@@ -1,0 +1,85 @@
+body {
+  background-image: url('../img/logistica-estoque.jpg');
+  background-size: cover; /* Para ajustar a imagem ao tamanho da tela */
+  background-repeat: no-repeat; /* Para evitar que a imagem se repita */
+}
+
+/* Caixa responsável por todo conteúdo do login */
+.box {
+  background-color: rgba(255, 255, 255, 1);
+  width: 400px;
+  height: 240px;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+  font-size: 30px;
+  font-family: FreeMono, monospace;
+  text-align: center;
+  
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  
+}
+/* Div para o nome titular da box (Caixa) */
+#entrar {
+  background-color: null;
+
+  position: relative;
+  top: 10px;
+}
+
+/* Div responsável por todo o formulario */
+#div-form {
+  background-color: null;
+  width: auto;
+  height: 160px;
+
+  position: relative;
+  top: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Todos os inputs, exceto o button submit */
+#inp-log {
+  background-color: rgb(235, 235, 235);
+  width: 360px;
+  height: 30px;
+  border: 0px;
+}
+
+/* Input submit */
+#inp-sub {
+  background-color: rgb(235, 235, 235);
+  width: 364px;
+  height: 50px;
+  border: 0px;
+  
+  font-size: 30px;
+  font-family: FreeMono, monospace;
+  cursor: pointer;
+
+  position: relative;
+  top: 10px;
+  
+}
+
+
+/* Div para a logo SENAI */
+.logo {
+  background-color: red;
+  width: 100px;
+  height: 40px;
+
+
+  position: absolute;
+  top: 95%;
+  left: 90%;
+}
+
+

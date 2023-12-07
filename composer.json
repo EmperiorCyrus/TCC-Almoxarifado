@@ -1,0 +1,12 @@
+{
+  "autoload":{
+    "psr-4":{
+      "App\\":"app/",
+      "Core\\":"core/",
+      "Utils\\":"utils/"
+    }, 
+    "require":{
+      "phpmailer/phpmailer": "6.0.*"
+    }
+  }
+}

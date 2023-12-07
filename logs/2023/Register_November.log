@@ -1,0 +1,123 @@
+[19/11/2023] Sun - 22:22:33 - [ ERROR ][ BD ] - [ INVOICE / CREATE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:22:33 - [ ERROR ][ BD ] - [ INVOICE / CREATE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:22:34 - [ ERROR ][ BD ] - [ INVOICE / CREATE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:22:34 - [ ERROR ][ BD ] - [ INVOICE / CREATE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:27:49 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                          [ MODEL ][ INVOICE / CREATE ] - [ LINE - 54 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:27:50 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                          [ MODEL ][ INVOICE / CREATE ] - [ LINE - 54 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:28:19 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                            [ MODEL ][ INVOICE / CREATE ] - [ LINE - 54 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:28:19 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                            [ MODEL ][ INVOICE / CREATE ] - [ LINE - 54 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:28:25 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                             [ MODEL ][ INVOICE / CREATE ] - [ LINE - 54 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:28:25 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                             [ MODEL ][ INVOICE / CREATE ] - [ LINE - 54 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:32:35 - [ ERROR ][ BD ] - [ INVOICE / CREATE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:32:36 - [ ERROR ][ BD ] - [ INVOICE / CREATE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:34:35 - [ ERROR ][ SYSTEN ][ MODEL ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                              - [ LINE - 168 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:35:30 - [ ERROR ][ SYSTEN ][ MODEL ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                              - [ LINE - 168 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:36:57 - [ - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:36:57 - [ - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:37:39 - [ ERROR ][ BD ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:45:50 - [ ERROR ][ SYSTEN ][ MODEL ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                              - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:46:55 - [ ERROR ][ SYSTEN ][ MODEL ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                              - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:46:56 - [ ERROR ][ SYSTEN ][ MODEL ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                              - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:47:09 - [ ERROR ][ SYSTEN ][ MODEL ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                            - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:47:25 - [ ERROR ][ SYSTEN ][ MODEL ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                           - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:48:44 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                          [ MODEL ][ INVOICE / DELETE ] - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:48:44 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                          [ MODEL ][ INVOICE / DELETE ] - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:49:01 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                             [ MODEL ][ INVOICE / DELETE ] - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:49:01 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                             [ MODEL ][ INVOICE / DELETE ] - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:49:49 - [ ERROR ][ BD ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:49:49 - [ ERROR ][ BD ][ INVOICE / DELETE ] - SQLSTATE[42S0 20: 00 se table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:52:27 - [ BD ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Bas 0 t 0 e 0 or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:52:27 - [ BD ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base 0     0 or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:53:02 - [ ERROR ][ BD ][ INVOICE / DELETE ] - SQLSTATE[42S02]:0 Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:53:02 - [ ERROR ][ BD ][ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:53:34 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                             [ ERROR ][ MODEL ]  [ INVOICE / DELETE ] - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:53:34 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                             [ ERROR ][ MODEL ]  [ INVOICE / DELETE ] - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:54:22 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                             [ ERROR ][ MODEL ]  [ INVOICE / DELETE ] - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:54:22 - [ ERROR ][ SYSTEN ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+.                             [ ERROR ]           [ INVOICE / DELETE ] - [ LINE - 163 ] - D:\Programacao\IDEs - Banco de Dados\Xampp\htdocs\almoxarifado\app\model\model_invoice.php
+[19/11/2023] Sun - 22:55:14 - [ ERROR ][ BD ]     [ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:55:14 - [ ERROR ][ BD ]     [ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:58:17 - [ ERROR ][ BD ]     [ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:58:17 - [ ERROR ][ BD ]     [ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:58:48 - [ ERROR ][ BD ]     [ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+[19/11/2023] Sun - 22:58:48 - [ ERROR ][ BD ]     [ INVOICE / DELETE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.nota_fiscal' doesn't exist
+                              [ UPDATE ][ REQUESTER ] - [ Atualizando ID: 51 ][ E-mail: wesporsan@gmail.com >> wesporsan01@gmail.com ][ Nome: Wesley >> Portugal ][28/11/2023] Tue - 18:59:27 - [ ERROR ][ ERROR ][ BD ] - [ REQUESTER / CREATE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.solicitante' doesn't exist
+[28/11/2023] Tue - 19:04:03 - [ CREATE ][ REQUESTER ] - [ Nome - teste1]
+[28/11/2023] Tue - 19:06:49 - [ ALERT ][ REQUESTER ][ CREATE ] - [ O email: 'teste1@gmail.com', já está em uso no Banco de Dados ]
+[28/11/2023] Tue - 19:12:56 - [ ERROR ][ ERROR ][ BD ] - [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[28/11/2023] Tue - 19:13:45 - [ ERROR ][ ERROR ][ BD ] - [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[28/11/2023] Tue - 19:14:10 - [ ERROR ][ BD ] - [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[28/11/2023] Tue - 19:15:27 - [ ERROR ][ BD ] ~~~ [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[28/11/2023] Tue - 19:15:58 - [ ERROR ][ SYSTEN ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+.                             [ ERROR ][ MODEL ][ REQUESTER / CREATE ] - [ LINE - 55 ] - C:\xampp\htdocs\almoxarifado\app\model\model_requester.php
+[28/11/2023] Tue - 19:20:06 - [ ERROR ][ SYSTEN ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+.                             [ ERROR ][ MODEL ] ~ [ REQUESTER / CREATE ] - [ LINE - 55 ] - C:\xampp\htdocs\almoxarifado\app\model\model_requester.php
+[28/11/2023] Tue - 19:20:44 - [ ERROR ][ SYSTEN ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+.                             [ ERROR ][ MODEL ]  [ REQUESTER / CREATE ] - [ LINE - 55 ] - C:\xampp\htdocs\almoxarifado\app\model\model_requester.php
+[28/11/2023] Tue - 19:23:51 - [ ERROR ][ BD ] --- [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[28/11/2023] Tue - 19:25:59 - [ ERROR ][ BD ] --- [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[28/11/2023] Tue - 19:26:04 - [ ERROR ][ BD ] --- [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[28/11/2023] Tue - 19:26:05 - [ ERROR ][ BD ] --- [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[28/11/2023] Tue - 19:26:30 - [ ERROR ][ BD ] --- [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[28/11/2023] Tue - 19:59:08 - [ CREATE ][ REQUESTER ] - [ Nome: 'teste4' & E-mail: 'teste4@gmail.com' ]
+[28/11/2023] Tue - 19:59:31 - [ ALERT ][ REQUESTER ][ CREATE ] - [ O email: 'teste4@gmail.com', já está em uso no Banco de Dados ]
+[28/11/2023] Tue - 21:13:10 - [ ERROR ][ BD ] --- [ REQUESTER / CREATE ] - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email' in 'field list'
+[28/11/2023] Tue - 21:13:51 - [ ERROR ][ BD ] --- [ REQUESTER / CREATE ] - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email' in 'field list'
+[28/11/2023] Tue - 21:15:10 - [ CREATE ][ REQUESTER ] - [ Nome: 'teste4' & E-mail: 'teste4@gmail.com' ]
+[28/11/2023] Tue - 21:15:38 - [ CREATE ][ REQUESTER ] - [ Nome: 'teste1' & E-mail: 'teste1@gmail.com' ]
+[28/11/2023] Tue - 21:16:34 - [ ALERT ][ REQUESTER ][ CREATE ] - [ O email: 'teste1@gmail.com', já está em uso no Banco de Dados ]
+[28/11/2023] Tue - 21:18:54 - [ ALERT ][ REQUESTER ][ CREATE ] - [ O email: 'teste1@gmail.com', já está em uso no Banco de Dados ]
+[28/11/2023] Tue - 21:19:07 - [ ALERT ][ REQUESTER ][ CREATE ] - [ O email: 'teste1@gmail.com', já está em uso no Banco de Dados ]
+[28/11/2023] Tue - 21:19:22 - [ CREATE ][ REQUESTER ] - [ Nome: 'teste3' & E-mail: 'teste3@gmail.com' ]
+[28/11/2023] Tue - 21:20:05 - [ ALERT ][ REQUESTER ][ CREATE ] - [ O email: 'teste3@gmail.com', já está em uso no Banco de Dados ]
+[28/11/2023] Tue - 21:20:22 - [ CREATE ][ REQUESTER ] - [ Nome: 'teste2' & E-mail: 'teste2@gmail.com' ]
+[28/11/2023] Tue - 21:21:40 - [ FAILURE ][ REQUESTER ][ CREATE ] - [ Nome - teste5]
+[29/11/2023] Wed - 19:55:18 - [ FAILURE ] -> [ REQUESTER ][ CREATE ] - [ Falha ao executar novo solicitante ][ Nome: 'teste1' ][ E-mail: 'teste1@gmail.com' ]
+[29/11/2023] Wed - 19:57:42 - [ ALERT ] ---> [ REQUESTER ][ CREATE ] - [ O email: 'teste1@gmail.com', já está em uso no Banco de Dados ]
+[29/11/2023] Wed - 19:58:22 - [ FAILURE ] -> [ REQUESTER ][ CREATE ] - [ Falha ao executar novo solicitante ][ Nome: 'teste2' ][ E-mail: 'teste2@gmail.com' ]
+[29/11/2023] Wed - 19:59:26 - [ CREATE ] --> [ REQUESTER ] -> [ Nome: 'teste3' & E-mail: 'teste3@gmail.com' ]
+[29/11/2023] Wed - 20:06:42 - [ ALERT ][ REQUESTER ][ CREATE ] - [ O email: 'teste3@gmail.com', já está em uso no Banco de Dados ]
+
+[29/11/2023] Wed - 20:07:10 - [ ALERT ][ REQUESTER ][ CREATE ] - [ O email: 'teste3@gmail.com', já está em uso no Banco de Dados ]
+
+[29/11/2023] Wed - 20:07:30 - [ ALERT ] ---> [ REQUESTER ][ CREATE ] - [ O email: 'teste3@gmail.com', já está em uso no Banco de Dados ]
+
+[29/11/2023] Wed - 20:09:01 - [ ALERT ] ---> [ REQUESTER ][ CREATE ] - [ O email: 'teste3@gmail.com', já está em uso no Banco de Dados ]
+
+[29/11/2023] Wed - 20:09:24 - [ ERROR ][ BD ] --- [ REQUESTER / CREATE ] - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.dsahdoia' doesn't exist
+
+[29/11/2023] Wed - 20:11:06 - [ ERROR ] ---> [ SYSTEN ] -> - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.dsahdoia' doesn't exist
+.                             [ ERROR ][ MODEL ]  [ REQUESTER / CREATE ] - [ LINE - 42 ] - C:\xampp\htdocs\almoxarifado\app\model\model_requester.php
+
+[29/11/2023] Wed - 20:11:47 - [ ERROR ] ---> [ SYSTEN ] -> - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.dsahdoia' doesn't exist
+.                             [ ERROR ] ---> [ MODEL ]  [ REQUESTER / CREATE ] - [ LINE - 42 ] - C:\xampp\htdocs\almoxarifado\app\model\model_requester.php
+
+[29/11/2023] Wed - 20:12:09 - [ ERROR ] ---> [ SYSTEN ] -> - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.dsahdoia' doesn't exist
+.                             [ ERROR ] ---> [ MODEL ]  [ REQUESTER / CREATE ] - [ LINE - 42 ] - C:\xampp\htdocs\almoxarifado\app\model\model_requester.php
+
+[29/11/2023] Wed - 20:12:37 - [ ERROR ] ---> [ SYSTEN ] ->SQLSTATE[42S02]: Base table or view not found: 1146 Table 'almoxarifado.dsahdoia' doesn't exist
+.                             [ ERROR ] ---> [ MODEL ]  [ REQUESTER / CREATE ] - [ LINE - 42 ] - C:\xampp\htdocs\almoxarifado\app\model\model_requester.php
+[30/11/2023] Thu - 01:09:35 - [ ERROR ] ---> [ BD ] -> [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[30/11/2023] Thu - 01:20:18 - [ ERROR ] ---> [ BD ] -> [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[30/11/2023] Thu - 01:20:25 - [ ERROR ] ---> [ BD ] -> [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+[30/11/2023] Thu - 01:21:54 - [ ERROR ] ---> [ BD ] -> [ REQUESTER / CREATE ] - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'

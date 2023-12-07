@@ -1,0 +1,36 @@
+[18/11/2023] Seg - 00:02 - [ CREATE ][ NOTA-FISCAL ]
+[18/11/2023]     - 00:04 - [Insert Product - Who: Sabão     Valor: 15] 
+[18/11/2023]     - 00:06 - [ ERROR ][ BD ] - 
+[18/11/2023]     - 02:44 - [ ERROR ][ SYSTEN ] -
+-                        - [ MODEL ][ INVOICE UPDATE] - Linha 135
+
+
+
+
+$text = "[ UPDATE ][ NOTA-FISCAL ] - [ Descrição - {$invoice_date}";
+write_log($text, "register");     
+nota-fiscal_20112023_220615.pdf
+
+
+
+# Registro para criação de algo
+$text = "[ CREATE ][ REQUESTER ] - [ Nome - {$name_sent}]";
+
+
+# Registro para elerta de Email em uso
+$text = "[ ALERT ][ REQUESTER ][ CREATE ] - [ O email: '{/*EMAIL*/}', já está em uso no Banco de Dados ]";
+
+# Registro para exibir falha ao verificar Email.
+$text = "[ FAILURE ][ REQUESTER ][ CREATE ] - [ Falha ao verificar email: '{/*EMAIL*/}' ]";
+
+
+
+Atualizar:
+
+# Sucesso ao atualizar.
+# Exibe o ID atualizado e o E-mail antigo e sua atualização, o Nome antigo e sua atualização
+$text = "[ UPDATE ][ REQUESTER ] - [ Atualizando ID: {$id} ][ E-mail: '{$email}' >> '{$new_email}' ][ Nome: '{$name}' >> '{$new_name}']";
+
+# Erro ao atualizar.
+# Exibe o ID relacionado e o Email e o Nome no qual iria atualizar.
+$text = "[ FAILURE ][ REQUESTER ][ UPDATE ] - [ ID: {$id} ][ E-mail: '{$new_email}' ][ Nome: '{$new_name}' ]";
