@@ -28,6 +28,7 @@
 
 	// Verifica se a rota existe
 	if (!isset($routes[$controller])) {
+		
 		//Fazer um pagina html de solicitações ou acesso inválido
 		die('Rota não encontrada.');
 	} else if (!isset($routes[$controller][$action])) {
