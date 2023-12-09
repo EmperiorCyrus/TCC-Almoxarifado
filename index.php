@@ -12,7 +12,8 @@
   use App\Model\DTO\ProductDTO;
   use App\Model\DTO\requesterDTO;
 
-	// Define as rotas
+
+	// Matriz para definições de rotas
 	$routes = [
 		'ControllerInvoice' => [
 			'index'  => ['action' => 'index',  'view' => 'note/index'],
@@ -21,30 +22,31 @@
 			'delete' => ['action' => 'delete', 'view' => 'note/delete'],
 		],
 		'ControllerBatch' => [
-			'index'  => ['action' => 'index',  'view' => 'note/index'],
-			'save'   => ['action' => 'save',   'view' => 'note/save'],
-			'edit'   => ['action' => 'edit',   'view' => 'note/edit'],
-			'delete' => ['action' => 'delete', 'view' => 'note/delete'],
+			'index'  => ['action' => 'index',  'view' => 'batch/index'],
+			'save'   => ['action' => 'save',   'view' => 'batch/save'],
+			'edit'   => ['action' => 'edit',   'view' => 'batch/edit'],
+			'delete' => ['action' => 'delete', 'view' => 'batch/delete'],
 		],
 		'ControllerEntrance' => [
-			'index'  => ['action' => 'index',  'view' => 'note/index'],
-			'save'   => ['action' => 'save',   'view' => 'note/save'],
-			'edit'   => ['action' => 'edit',   'view' => 'note/edit'],
-			'delete' => ['action' => 'delete', 'view' => 'note/delete'],
+			'index'  => ['action' => 'index',  'view' => 'entrance/index'],
+			'save'   => ['action' => 'save',   'view' => 'entrance/save'],
+			'edit'   => ['action' => 'edit',   'view' => 'entrance/edit'],
+			'delete' => ['action' => 'delete', 'view' => 'entrance/delete'],
 		],
 		'ControllerProduct' => [
-			'index'  => ['action' => 'index',  'view' => 'note/index'],
-			'save'   => ['action' => 'save',   'view' => 'note/save'],
-			'edit'   => ['action' => 'edit',   'view' => 'note/edit'],
-			'delete' => ['action' => 'delete', 'view' => 'note/delete'],
+			'index'  => ['action' => 'index',  'view' => 'product/index'],
+			'save'   => ['action' => 'save',   'view' => 'product/save'],
+			'edit'   => ['action' => 'edit',   'view' => 'product/edit'],
+			'delete' => ['action' => 'delete', 'view' => 'product/delete'],
 		],
 		'ControllerOutput' => [
-			'index'  => ['action' => 'index',  'view' => 'note/index'],
-			'save'   => ['action' => 'save',   'view' => 'note/save'],
-			'edit'   => ['action' => 'edit',   'view' => 'note/edit'],
-			'delete' => ['action' => 'delete', 'view' => 'note/delete'],
+			'index'  => ['action' => 'index',  'view' => 'output/index'],
+			'save'   => ['action' => 'save',   'view' => 'output/save'],
+			'edit'   => ['action' => 'edit',   'view' => 'output/edit'],
+			'delete' => ['action' => 'delete', 'view' => 'output/delete'],
 		],
 	];
+
 
 
 	
@@ -73,27 +75,77 @@ if (!isset($routes[$controller])) {
 	$dto.='DTO';																											// Adiciona DTO no final do que sobrou da string
 	$dto = str_replace("'", "", $dto);																// Garante que a string não terá aspas.
       
-	//Analisa o que é necessário executar
+	// Analisa o que é necessário executar
 	switch ($action) {
+
+		case 'index':
+
+			break;
 
 		case 'save':     
 			switch ($dto) {
 				
 				case 'InvoiceDTO':
-					//$note = new InvoiceDTO($_REQUEST['numero'],$_REQUEST['path'],$_REQUEST['description']);
-					$note = new InvoiceDTO(555,"teste","teste");
-					include_once 'app/view/' . $view . '.php';
+					//$invoice = new InvoiceDTO($_REQUEST['numero'],$_REQUEST['path'],$_REQUEST['description']);
+					$invoice = new InvoiceDTO(null, "descricao", "nome", "caminho");
+					$controller->save($invoice);
+					//include_once 'app/view/' . $view . '.php';
+					var_dump($invoice);
 					break;
 
 				case 'BatchDTO':
-					//$note = new BatchDTO($_REQUEST['idnota'],$_REQUEST['codigo']);
-					$note = new BatchDTO(1,"555", null, null);
-					
+					//$batch = new BatchDTO($_REQUEST['idnota'],$_REQUEST['codigo']);
+					$batch = new BatchDTO(1,"555");	
+					include_once 'app/view/' . $view . '.php';
+					break;
+
+				case 'EntranceDTO':
+					//$entrance = new EntranceDTO($_REQUEST['idproduto'], $_REQUEST['idlote'], $_REQUEST['quantidade'],
+					//$_REQUEST['validade'], $_REQUEST['valor'], $_REQUEST['identrada'], $_REQUEST['creationdate']);
+					$entrance = new EntranceDTO(1,2,50);
+					include_once 'app/view/' . $view . '.php';
+					break;
+				
+				case 'ProductDTO':
+					break;
+
+				case 'OutputDTO':
+					break;
+
+				default:
+					break;
+
 			}
-				break;
-		case 'index':
+			break;
+
+
+
+		case 'edit':
 			switch ($dto) {
 
+				case 'InvoiceDTO':
+					//$invoice = new InvoiceDTO($_REQUEST['idnota'],$_REQUEST['path'],$_REQUEST['description']);
+					$invoice = new InvoiceDTO(1, "atualizado");
+					$controller->edit($invoice);
+					//include_once 'app/view/' . $view . '.php';
+
+					break;
+
+				case 'BatchDTO':
+
+					break;
+
+				case 'EntranceDTO':
+					
+					break;
+				case 'ProductDTO':
+					break;
+
+				case 'OutputDTO':
+					break;
+
+				default:
+					break;
 				
 			}
 				

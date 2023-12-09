@@ -17,26 +17,26 @@
   class InvoiceDTO
   {
     private $idinvoice;
-    private string $path;
-    private string $description;
-    private string $name;
+    private $name;
+    private $path;
+    private $description;
     private $creation_date;
 
 
     /**
      * Construct responsável por encapsular dados da nota-fiscal.
      * 
-     * @param string  $path
-     * @param string  $description
-     * @param string  $name
      * @param int     $idinvoice      - Sem obrigatoriedade
+     * @param string  $description    - Sem obrigatoriedade
+     * @param string  $name           - Sem obrigatoriedade
+     * @param string  $path           - Sem obrigatoriedade
      * @param string  $creation_date  - Sem obrigatoriedade
      */
-    public function __construct(string $path, string $description, string $name, int $idinvoice = null, string $creation_date = null) {
+    public function __construct(int $idinvoice = null, string $description = null, string $name = null, string $path = null, string $creation_date = null) {
         $this->idinvoice     = $idinvoice;        // Encapsulando dados recebidos
         $this->path          = $path;             // **
-        $this->description   = $description;      // **
         $this->name          = $name;             // **
+        $this->description   = $description;      // **
         $this->creation_date = $creation_date;    // **
     }
 
@@ -50,11 +50,11 @@
     
     
     // Funções para obter dados
-    public function getIdinvoice():        int { return $this->idinvoice; }
-    public function getPath():          string { return $this->path; }
-    public function getDescription():   string { return $this->description; }
-    public function getName():          string { return $this->name; }
-    public function getCreation_date()         { return $this->creation_date; }
+    public function getIdinvoice():    ?   int { return $this->idinvoice; }
+    public function getPath():         ?string { return $this->path; }
+    public function getDescription():  ?string { return $this->description; }
+    public function getName():         ?string { return $this->name; }
+    public function getCreation_date():?string { return $this->creation_date; }
 
 
 }

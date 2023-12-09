@@ -29,36 +29,41 @@
      * @param int     $idproduct
      * @param int     $idbatch
      * @param mixed   $amount
-     * @param string  $validity
-     * @param mixed   $value        - Sem obrigatoriedade
-     * @param int     $identrance   - Sem obrigatoriedade
+     * @param string  $validity       - Sem obrigatoriedade
+     * @param mixed   $value          - Sem obrigatoriedade
+     * @param int     $identrance     - Sem obrigatoriedade
+     * @param string  $creation_date  - Sem obrigatoriedade
      */
-    public function __construct($idproduct, $idbatch, $amount, $validity, $value = null, $identrance = null) {
-      $this->identrance = $identrance;    // Encapsulando dados recebidos
-      $this->amount = $amount;            // **
-      $this->validity = $validity;        // **
-      $this->value = $value;              // **
-      $this->idproduct = $idproduct;      // **
-      $this->idbatch = $idbatch;          // **
+    public function __construct($idproduct, $idbatch, $amount, $validity = null, $value = null, $identrance = null, $creation_date = null) {
+      $this->identrance = $identrance;        // Encapsulando dados recebidos
+      $this->amount = $amount;                // **
+      $this->validity = $validity;            // **
+      $this->value = $value;                  // **
+      $this->idproduct = $idproduct;          // **
+      $this->idbatch = $idbatch;              // **
+      $this->creation_date = $creation_date;  // **
+
     }
 
     // Métodos para definir dados
-    public function setIdEntrance($identrance): void { $this->identrance = $identrance; }
-    public function setAmount($amount):         void { $this->amount = $amount; }
-    public function setValidity($validity):     void { $this->validity = $validity; }
-    public function setValue($value):           void { $this->value = $value; }
-    public function setIdProduct($idproduct):   void { $this->idproduct = $idproduct; }
-    public function setIdBatch($idbatch):       void { $this->idbatch = $idbatch; }
+    public function setIdEntrance($identrance):       void { $this->identrance = $identrance; }
+    public function setAmount($amount):               void { $this->amount = $amount; }
+    public function setValidity($validity):           void { $this->validity = $validity; }
+    public function setValue($value):                 void { $this->value = $value; }
+    public function setIdProduct($idproduct):         void { $this->idproduct = $idproduct; }
+    public function setIdBatch($idbatch):             void { $this->idbatch = $idbatch; }
+    public function setCreationDate($creation_date):  void { $this->creation_date = $creation_date; }
+
 
     // Métodos para obter dados
-    public function getIdEntrance() { return $this->identrance; }
-    public function getAmount()     { return $this->amount; }
-    public function getValidity()   { return $this->validity; }
-    public function getValue()      { return $this->value; }
-    public function getIdProduct()  { return $this->idproduct; }
-    public function getIdBatch()    { return $this->idbatch; }
+    public function getIdEntrance()   { return $this->identrance; }
+    public function getAmount()       { return $this->amount; }
+    public function getValidity()     { return $this->validity; }
+    public function getValue()        { return $this->value; }
+    public function getIdProduct()    { return $this->idproduct; }
+    public function getIdBatch()      { return $this->idbatch; }
+    public function getCreationDate() {return $this->creation_date; }
   }
 
 
 
-  $teste = new EntranceDTO();

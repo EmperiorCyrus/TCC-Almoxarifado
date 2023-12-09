@@ -99,11 +99,15 @@
       //> Analiza execuções dentro da função de possiveis erros e falha.
       try {
     
+
+        $idinvoice   = $invoiceDTO->getIdinvoice();
+        $description = $invoiceDTO->getDescription();
+        var_dump($idinvoice);
         // Query e manilação para atualização de descrição da nota fiscal.
         $update_query = "UPDATE nota SET descricao = :new_description WHERE idnota = :idnota";
-        $update_stmt  = $this->conn->prepare($update_query);                                              // Preparando sintaxe SQL
-        $update_stmt->bindParam(':idnota',           $invoiceDTO->getIdinvoice(),       PDO::PARAM_INT); // Dando valores aos espaços declarado.
-        $update_stmt->bindParam(':new_description',   $invoiceDTO->getDescription(),     PDO::PARAM_STR); // **
+        $update_stmt  = $this->conn->prepare($update_query);                                            // Preparando sintaxe SQL
+        $update_stmt->bindParam(':idnota',            $invoiceDTO->getIdinvoice(),       PDO::PARAM_INT);                // Dando valores aos espaços declarado.
+        $update_stmt->bindParam(':new_description',   $invoiceDTO->getDescription(),     PDO::PARAM_STR);                // **
 
         // Verifica se a execução é bem-sucedida.
         if ($update_stmt->execute()) {
@@ -155,7 +159,7 @@
         if ($stmt->rowCount() == 0) {
 
           // Variaveis reescritas
-          $query = "SELECT path FROM nota WHERE idnota = :idnota";                             // Query para obter caminho da nota fiscal
+          $query = "SELECT path FROM nota WHERE idnota = :idnota";                              // Query para obter caminho da nota fiscal
           $stmt  = $this->conn->prepare($query);                                                // Preparando sintaxe SQL
           $stmt->bindParam(':idnota',      $invoiceDTO->getIdinvoice(),      PDO::PARAM_INT);   // Dando valor ao espaço declarado
 
