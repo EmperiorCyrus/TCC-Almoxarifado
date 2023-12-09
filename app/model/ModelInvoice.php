@@ -40,8 +40,8 @@
 
 
     /** 
-     * Function responsável por criar uma nova nota-fiscal
-     * Ele cria e registra ações relacionada a nota-fiscal.
+     * Function responsável por criar um novo registro de nota-fiscal
+     * Ele altera, registra ações relacionada e retorna erros em exceções.
      * 
      * @param InvoiceDTO      - classe que possui dados de nota-fiscal
      * 
@@ -64,7 +64,7 @@
 
           $text = "[ CREATE ][ INVOICE ] - [ Nome - {$invoiceDTO->getName()} ]";                              // Salva topicos para log
           $log = write_log::write($text, "register");                                                         // Chamando função para escrever registro
-          return true;
+          return true;                                                                                        // Retorna true ao controller indicando sucesso.
         }
 
 
@@ -73,14 +73,14 @@
 
         $text = ["[ ERROR ][ BD ] - [ INVOICE / CREATE ]"];                   // Salva topicos para log
         $log = write_log::write($text, "error-pdo", $error_pdo);              // Chamando função para escrever erro do BD no log
-        return $error_pdo;                                                    // Alerta controller de uma má execução com "1".
+        return $error_pdo;                                                    // Retorna array ao controller com PDOException.
 
       //> Tratativa de erro relacionado ao Sistema.
       } catch (Exception $error_system) {
 
         $text = ["[ ERROR ][ SYSTEN ]","[ MODEL ][ INVOICE / CREATE ]"];      // Salva topicos para log
         $log = write_log::write($text, "error-system", $error_system);        // Chamando função para escrever erro de sistema no log
-        return $error_system;                                                 // Alerta controller de uma má execução com "1".
+        return $error_system;                                                 // Retorna array ao controller com Exception.
       }
     }
 
@@ -88,11 +88,11 @@
 
     /**
      * Function responsável pela atualização da nota-fiscal.
-     * Ele atualiza descrição e registra ações relacionada a nota-fiscal.
+     * Ele atualiza, registra ações relacionada e retorna erros em exceções.
      * 
      * @param InvoiceDTO - classe que possui dados de nota-fiscal
      * 
-     * @return bool|array      - Boa (true)| má execução (Exceptions)
+     * @return bool|array - Boa (true)| má execução (Exceptions)
      */
     public function update(InvoiceDTO $invoiceDTO) {
 
@@ -219,8 +219,8 @@
           while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {   
             
             //instanciando uma nova class (DTO) para passar os parametros
-            $inst = new InvoiceDTO($result['nome'], $result['path'], $result['descricao'], intval($result['idnota']), $result['data_criacao']);                        
-            $invoices[intval($result['idnota'])] = $inst;                     // Aramazenando dados e nomeando posição referente ao número do ID
+            $content = new InvoiceDTO($result['nome'], $result['path'], $result['descricao'], intval($result['idnota']), $result['data_criacao']);                        
+            $invoices[intval($result['idnota'])] = $content;                  // Aramazenando dados e nomeando posição referente ao número do ID
           }
 
           return $invoices;                                                   // Retornando DTO armazenado

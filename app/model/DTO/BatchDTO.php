@@ -14,23 +14,24 @@
    */
   class BatchDTO {
 
-      private int    $idbatch;
-      private string $cod;
-      private string $creation_date;
-      private int    $idinvoice;
+      private $idbatch;
+      private $cod;
+      private $creation_date;
+      private $idinvoice;
 
       /**
        * Construct responsável por encapsular dados do lote.
        *
-       * @param string|null $cod
-       * @param string|null $creation_date
        * @param int|null    $idinvoice
+       * @param string|null $cod
+       * @param mixed    $idbatch
+       * @param string|null $creation_date
        */
-      public function __construct(int $idinvoice = null, ?string $cod = null, ?int $idbatch = null, ?string $creation_date = null) {
+      public function __construct(int $idinvoice = null, string $cod = null, int $idbatch = null, string $creation_date = null) {
+          $this->idinvoice     = $idinvoice;
           $this->cod           = $cod;
           $this->idbatch       = $idbatch;
           $this->creation_date = $creation_date;
-          $this->idinvoice     = $idinvoice;
       }
 
       // Funções para adicionar dados do lote

@@ -14,12 +14,13 @@
    */
   class EntranceDTO {
 
-    private $identrance;   // ID da entrada
-    private $value;        // Validade do produto
-    private $amount;       // Quantidade da entrada
-    private $validity;     // Validade do produto
-    private $idproduct;    // ID do produto (chave estrangeira)
-    private $idbatch;      // ID do lote (chave estrangeira)
+    private $identrance;    // ID da entrada
+    private $value;         // Validade do produto
+    private $amount;        // Quantidade da entrada
+    private $validity;      // Validade do produto
+    private $creation_date; // Data de criação
+    private $idproduct;     // ID do produto (chave estrangeira)
+    private $idbatch;       // ID do lote (chave estrangeira)
 
 
     /**
@@ -57,3 +58,7 @@
     public function getIdProduct()  { return $this->idproduct; }
     public function getIdBatch()    { return $this->idbatch; }
   }
+
+
+
+  $teste = new EntranceDTO();
