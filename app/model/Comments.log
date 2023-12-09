@@ -1,0 +1,18 @@
+/**
+  * Function responsável pela atualização da nota-fiscal.
+  * Ele atualiza descrição e registra ações relacionada a nota-fiscal.
+  * 
+  * @param InvoiceDTO - classe que possui dados de nota-fiscal
+  * 
+  * @return bool|array      - Boa (true)| má execução (Exceptions)
+  */
+
+
+
+Return Array=>DTO     // Retornando Array contendo DTO armazenado.
+Return true           // Retorna true ao controller indicando sucesso.
+Return $error_pdo     // Retorna array ao controller com PDOException error.
+Return $error_system  // Retorna array ao controller com Exception error.
+Return "Array DTO"    // Retornando DTO armazenado.
+
+Instancia de DTO      // Instanciando Class DTO para salvar dados.

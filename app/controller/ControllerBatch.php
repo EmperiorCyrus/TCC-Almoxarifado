@@ -14,16 +14,6 @@
     }
 
 
-    public function selectAll(): array
-    {
-        return $this->batchModel->selectAll();
-    }
-
-    public function selectById(int $id): ?BatchDTO
-    {
-        return $this->batchModel->selectById($id);
-    }
-
     public function insert(BatchDTO $batch): bool
     {
         return $this->batchModel->insert($batch);
@@ -38,4 +28,15 @@
     {
         return $this->batchModel->delete($id);
     }
+    
+    public function selectAll(): array
+    {
+        return $this->batchModel->selectAll();
+    }
+
+    public function selectById(int $id): ?BatchDTO
+    {
+        return $this->batchModel->selectById($id);
+    }
+
 }

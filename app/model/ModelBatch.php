@@ -44,7 +44,7 @@
      * 
      * @param BatchDTO      - classe que possui dados de lote
      * 
-     * @return bool         - Boa ou má execução
+     * @return bool|array   - Boa ou má execução
      */
     public function insert(BatchDTO $batchDTO) {
 
@@ -52,9 +52,9 @@
       try {
 
         // Query para verificar a existencia da NOTA referente.
-        $query = "SELECT idnota FROM nota WHERE idnota = :idnota_fk";                               // Query para identificar ID correspondente na tabela nota.
+        $query = "SELECT idnota FROM nota WHERE idnota = :idnota";                               // Query para identificar ID correspondente na tabela nota.
         $stmt = $this->conn->prepare($query);                                                       // Preparando sintaxe SQL.
-        $stmt->bindParam(':idnota_fk',      $batchDTO->getIdInvoice(),     PDO::PARAM_INT);         // Dando valor ao espaço declarado.
+        $stmt->bindParam(':idnota',      $batchDTO->getIdInvoice(),     PDO::PARAM_INT);         // Dando valor ao espaço declarado.
 
         // Verificando se a execução foi bem-sucedida.
         if ($stmt->execute()) { 
@@ -62,7 +62,7 @@
           // Verificando se a resposta da query é apenas 1.
           if ($stmt->rowCount() == 1) {
 
-            $insert_query = "INSERT INTO lote(idnota) VALUE (:idnota, :cod)";                       // Query para inserir um novo lote com o ID da nota-fiscal.
+            $insert_query = "INSERT INTO lote (idnota) VALUE (:idnota, :cod)";                       // Query para inserir um novo lote com o ID da nota-fiscal.
             $insert_stmt  = $this->conn->prepare($insert_query);                                    // Preparando sintaxe.
             $insert_stmt->bindParam(':idnota',      $batchDTO->getIdInvoice(),     PDO::PARAM_INT); // Dando valor ao espaço declarado.
             $insert_stmt->bindParam(':cod',         $batchDTO->getCod(),           PDO::PARAM_INT); // **
@@ -73,14 +73,8 @@
               $text = "[ CREATE ][ BATCH ] - [ Lote da Nota-Fiscal ID: {$batchDTO->getIdInvoice()} ]";   // Salva topico para log,
               $log = write_log::write($text, "register");                                                // Chama função para registrar tópico.
             }
-
-          // Em caso de não ter resultado ou ter mais de um.
-          } else {
-
-            return 1;
           }
         }
-
 
 
       //> Tratativa de erro relacionado ao Banco de Dados.
@@ -89,14 +83,14 @@
 
         $text = ["[ ERROR ][ BD ] - [ BATCH / CREATE ]"];                     // Salva topicos para log
         $log = write_log::write($text, "error-pdo", $error_pdo);              // Chamando função para escrever erro do BD no log
-        return 1;                                                             // Alerta controller de uma má execução com "1".
+        return $error_pdo;                                                    // Alerta controller de uma má execução com "1".
 
       //> Tratativa de erro relacionado ao Sistema.
       } catch (Exception $error_system) {
 
         $text = ["[ ERROR ][ SYSTEN ]","[ MODEL ][ BATCH / CREATE ]"];        // Salva topicos para log
         $log = write_log::write($text, "error-system", $error_system);        // Chamando função para escrever erro de sistema no log
-        return 1;                                                             // Alerta controller de uma má execução com "1".
+        return $error_system;                                                 // Alerta controller de uma má execução com "1".
       }
 
       return 0;

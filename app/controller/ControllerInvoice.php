@@ -10,35 +10,37 @@
 class ControllerInvoice
 {
 
-	private ModelInvoice $noteModel;
+	private ModelInvoice $invoiceModel;
 
 	public function __construct()
 	{
-		$this->noteModel = new ModelInvoice();
+		$this->invoiceModel = new ModelInvoice();
 	}
 
-	public function selectAll(): array
-	{
-		return $this->noteModel->selectAll();
-	}
-
-	public function selectById(int $id): InvoiceDTO
-	{
-		return $this->noteModel->selectById($id);
-	}
-
+	
 	public function insert(InvoiceDTO $note): bool
 	{   
-		return $this->noteModel->insert($note);
+		return $this->invoiceModel->insert($note);
 	}
 
 	public function update(InvoiceDTO $note): bool
 	{
-		return $this->noteModel->update($note);
+		return $this->invoiceModel->update($note);
 	}
 
 	public function delete(int $id): bool
 	{
-		return $this->noteModel->delete($id);
+		return $this->invoiceModel->delete($id);
 	}
+
+	public function selectAll(): array
+	{
+		return $this->invoiceModel->selectAll();
+	}
+
+	public function selectById(int $id): InvoiceDTO
+	{
+		return $this->invoiceModel->selectById($id);
+	}
+
 }
