@@ -18,12 +18,12 @@ class ControllerInvoice
 	}
 
 	
-	public function insert(InvoiceDTO $note): bool
+	public function save(InvoiceDTO $note): bool
 	{   
 		return $this->invoiceModel->insert($note);
 	}
 
-	public function update(InvoiceDTO $note): bool
+	public function edit(InvoiceDTO $note): bool
 	{
 		return $this->invoiceModel->update($note);
 	}
@@ -33,7 +33,7 @@ class ControllerInvoice
 		return $this->invoiceModel->delete($id);
 	}
 
-	public function selectAll(): array
+	public function index(): array
 	{
 		return $this->invoiceModel->selectAll();
 	}
@@ -42,5 +42,5 @@ class ControllerInvoice
 	{
 		return $this->invoiceModel->selectById($id);
 	}
-
 }
+
