@@ -18,7 +18,7 @@ class ControllerInvoice
 	}
 
 	
-	public function save(InvoiceDTO $note): bool
+	public function save(InvoiceDTO $note)
 	{   
 		return $this->invoiceModel->insert($note);
 	}

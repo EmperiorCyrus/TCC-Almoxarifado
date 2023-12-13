@@ -7,9 +7,11 @@
 <body>
     <div class="container">
         <h1>Cadastro de Nota Fiscal</h1>
-        <form action="../../controller/index.php?controller=ControllerInvoice&action=save" method="get">
+        <form action="index.php" method="post" enctype="multipart/form-data">
             <input type="hidden" nome="controller" value="ControllerInvoice">
             <input type="hidden" nome="action" value="save">
+            <!-- MAX_FILE_SIZE deve preceder o campo input -->
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
             <div class="form-group">
                 <label for="name">Numero</label>                
                 <input type="text" class="form-control" id="numero" name="numero" required>

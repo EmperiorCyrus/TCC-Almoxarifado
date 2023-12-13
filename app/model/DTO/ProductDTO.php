@@ -15,10 +15,12 @@
   class ProductDTO {
 
     private $idproduct;      // ID do produto
-    private $name;           // Nome do produto
-    private $brand;          // Marca do produto
-    private $perishable;     // Perecível
-    private $disposable;     // Descartável
+    private $name;           // Nome do produto #
+    private $brand;          // Marca do produto #
+    private $min;            // Valor minimo para restoque.
+    private $measurement     // Unidade de medida.
+    private $perishable;     // Perecível #
+    private $disposable;     // Descartável #
     private $creation_date;  // Data de criação
     private $idstorage;      // ID do armazenamento
     private $idsupplier;     // ID do fornecedor
@@ -34,6 +36,8 @@
      * @param string  $brand
      * @param bool    $perishable
      * @param bool    $disposable
+     * @param int     $min             
+     * @param string  $measurement
      * @param int     $idproduct       - Sem obrigatoriedade
      * @param string  $creation_date   - Sem obrigatoriedade
      * @param int     $idstorage       - Sem obrigatoriedade
@@ -41,10 +45,12 @@
      * @param int     $idcategory      - Sem obrigatoriedade
      * @param int     $auto_product    - Sem obrigatoriedade
      */
-    public function __construct($name, $brand, $perishable, $disposable, $idproduct = null, $creation_date = null, $idstorage = null, $idsupplier = null, $idcategory = null, $auto_product = null) {
+    public function __construct($name, $brand, $perishable, $disposable, $min, $measurement, $idproduct = null, $creation_date = null, $idstorage = null, $idsupplier = null, $idcategory = null, $auto_product = null) {
       $this->idproduct = $idproduct;            // Encapsulando dados recebidos
       $this->name          = $name;             // **
       $this->brand         = $brand;            // **
+      $this->min           = $min;              // **
+      $this->measurement   = $measurement;      // **
       $this->perishable    = $perishable;       // **
       $this->disposable    = $disposable;       // **
       $this->creation_date = $creation_date;    // **
@@ -59,6 +65,8 @@
     public function setIdProduct($idproduct):        void { $this->idproduct = $idproduct; }
     public function setName($name):                  void { $this->name = $name; }
     public function setBrand($brand):                void { $this->brand = $brand; }
+    public function setMin($min):                    void { $this->min = $min; }
+    public function setMeasurement($measurement):    void { $this->measurement = $measurement }
     public function setPerishable($perishable):      void { $this->perishable = $perishable; }
     public function setDisposable($disposable):      void { $this->disposable = $disposable; }
     public function setCreationDate($creation_date): void { $this->creation_date = $creation_date; }
@@ -72,8 +80,10 @@
     public function getIdProduct():    ?int    { return $this->idproduct; }
     public function getName():         ?string { return $this->name; }
     public function getBrand():        ?string { return $this->brand; }
-    public function isPerishable():    bool    { return $this->perishable; }
-    public function isDisposable():    bool    { return $this->disposable; }
+    public function getMin():          int     { return $this->min; }
+    public function getMeasurement():  string  { return $this->measurement; }
+    public function getPerishable():   bool    { return $this->perishable; }
+    public function getDisposable():   bool    { return $this->disposable; }
     public function getCreationDate(): string  { return $this->creation_date; }
     public function getIdStorage():    ?int    { return $this->idstorage; }
     public function getIdSupplier():   ?int    { return $this->idsupplier; }

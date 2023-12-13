@@ -16,3 +16,18 @@ Return $error_system  // Retorna array ao controller com Exception error.
 Return "Array DTO"    // Retornando DTO armazenado.
 
 Instancia de DTO      // Instanciando Class DTO para salvar dados.
+
+entrada:
+1: 5
+2: 10
+3: 7
+
+
+saida:
+1: 15
+
+
+SELECT (SUM)entrada.quantidade, (SUM)saida.quantidade FROM entrada
+INNER JOIN entrada ON produto.idproduto = entrada.idproduto;
+INNER JOIN saida ON entrada.idproduto =  WHERE idproduto = idproduto;
+

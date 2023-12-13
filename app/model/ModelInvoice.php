@@ -47,17 +47,21 @@
      * 
      * @return bool|array     - Boa (true) |  má execução (Exceptions)
      */
-    public function insert(InvoiceDTO $invoiceDTO): bool {
+    public function insert(InvoiceDTO $invoiceDTO) {
 
       //> Analiza execuções dentro da função de possiveis erros e falha.
       try {
 
         // Montando Query para criar uma nova nota fiscal.
+        $name        = $invoiceDTO->getName();                                                     // relizando passagem por referencia
+        $description = $invoiceDTO->getDescription();        
+        $path = $invoiceDTO->getPath();
+        
         $insert_query = "INSERT INTO nota (nome, path, descricao) VALUES (:nome, :path, :descricao)";         // Query para inserir dados         
         $insert_stmt = $this->conn->prepare($insert_query);                                                   // Preparando sintaxe SQL
-        $insert_stmt->bindParam(':nome',          $invoiceDTO->getName(),                   PDO::PARAM_STR);  // Dando valores aos espaços declarado
-        $insert_stmt->bindParam(':path',          $invoiceDTO->getPath(),                   PDO::PARAM_STR);  // **
-        $insert_stmt->bindValue(':descricao',     $invoiceDTO->getDescription()   ?? null,  PDO::PARAM_STR);  // **
+        $insert_stmt->bindParam(':nome',          $name,                   PDO::PARAM_STR);  // Dando valores aos espaços declarado
+        $insert_stmt->bindParam(':path',          $path,                   PDO::PARAM_STR);  // **
+        $insert_stmt->bindValue(':descricao',     $description   ?? null,  PDO::PARAM_STR);  // **
 
         // Verifica se a inserção foi bem-sucedida.
         if ($insert_stmt->execute()) {
@@ -102,12 +106,13 @@
 
         $idinvoice   = $invoiceDTO->getIdinvoice();
         $description = $invoiceDTO->getDescription();
+        
         var_dump($idinvoice);
         // Query e manilação para atualização de descrição da nota fiscal.
         $update_query = "UPDATE nota SET descricao = :new_description WHERE idnota = :idnota";
-        $update_stmt  = $this->conn->prepare($update_query);                                            // Preparando sintaxe SQL
-        $update_stmt->bindParam(':idnota',            $invoiceDTO->getIdinvoice(),       PDO::PARAM_INT);                // Dando valores aos espaços declarado.
-        $update_stmt->bindParam(':new_description',   $invoiceDTO->getDescription(),     PDO::PARAM_STR);                // **
+        $update_stmt  = $this->conn->prepare($update_query);                                      // Preparando sintaxe SQL        
+        $update_stmt->bindParam(':idnota',            $idinvoice,       PDO::PARAM_INT);                // Dando valores aos espaços declarado.        
+        $update_stmt->bindParam(':new_description',   $description,     PDO::PARAM_STR);                // **
 
         // Verifica se a execução é bem-sucedida.
         if ($update_stmt->execute()) {

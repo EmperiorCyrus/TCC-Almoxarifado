@@ -31,7 +31,7 @@
 			switch ($controller) {
 				case 'ControllerInvoice':	return new ControllerInvoice();						// Em caso de houver controller relacionado, retorna instancia equivalente
 				case 'ControllerBatch':		return new ControllerBatch();							// **
-				case 'ControllerEntrance':return new ControllerEntrance();					// **
+				case 'ControllerEntrance':  return new ControllerEntrance();					// **
 				case 'ControllerOutput': 	return new ControllerOutput();						// **
 				case 'ControllerProduct':	return new ControllerProduct();						// **
 

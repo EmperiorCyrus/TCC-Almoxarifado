@@ -12,14 +12,17 @@
   use App\Model\DTO\ProductDTO;
   use App\Model\DTO\requesterDTO;
 
-
+  //exit(var_dump($_REQUEST));
 	// Matriz para definições de rotas
 	$routes = [
 		'ControllerInvoice' => [
-			'index'  => ['action' => 'index',  'view' => 'note/index'],
-			'save'   => ['action' => 'save',   'view' => 'note/save'],
-			'edit'   => ['action' => 'edit',   'view' => 'note/edit'],
-			'delete' => ['action' => 'delete', 'view' => 'note/delete'],
+			'index'  	=> ['action' => 'index',  'view' => 'note/index'],
+			'view'  	=> ['action' => 'view',  'view' => 'note/view'],
+			'insert'   	=> ['action' => 'insert',   'view' => 'note/save'],
+			'save'   	=> ['action' => 'save',   'view' => 'note/save'],
+			'update' 	=> ['action' => 'update',   'view' => 'note/edit'],
+			'edit'   	=> ['action' => 'edit',   'view' => 'note/edit'],
+			'delete' 	=> ['action' => 'delete', 'view' => 'note/delete'],
 		],
 		'ControllerBatch' => [
 			'index'  => ['action' => 'index',  'view' => 'batch/index'],
@@ -49,31 +52,25 @@
 
 
 
-	
-	$controller = trim($_REQUEST['controller'], "'");				// Armazena dados _REQUEST e garante dados sem aspas simples (');
-	$action 		= trim($_REQUEST['action'], "'");						// **
+	extract($_REQUEST);
 
+	// Verifica se a rota condiz com os controllers
+	if (!isset($routes[$controller])) {	
+		header("Location: app/view/error404.php");							// Redireciona para a página de erro 404
+		exit(); 															// Encerra o script após o redirecionamento
 
-// Verifica se a rota condiz com os controllers
-if (!isset($routes[$controller])) {	
-	header("Location: app/view/error404.php");							// Redireciona para a página de erro 404
-	exit(); 																								// Encerra o script após o redirecionamento
+	// Verifica se a rota condiz com as ações
+	} else if (!isset($routes[$controller][$action])) {
+		header("Location: app/view/error404.php");							// Redireciona para a página de erro 404
+		exit(); 															// Encerra o script após o redirecionamento
+	}
+    
+	$view = $routes[$controller][$action]['view'];							// Obtem rota relacionado aos _REQUEST  e armazena em array.
 
-// Verifica se a rota condiz com as ações
-} else if (!isset($routes[$controller][$action])) {
-	header("Location: app/view/error404.php");							// Redireciona para a página de erro 404
-	exit(); 																								// Encerra o script após o redirecionamento
-}
+	$controller = new ControllerConfig($controller);						// Instancia o controlador dinamicamente.
 
-
-
-	$view = $routes[$controller][$action]['view'];					// Obtem rota relacionado aos _REQUEST  e armazena em array.
-
-	$controller = new ControllerConfig($controller);				// Instancia o controlador dinamicamente.
-
-	$dto = str_replace("Controller", "", $_REQUEST['controller']);    // Remove inicio da string.
-	$dto.='DTO';																											// Adiciona DTO no final do que sobrou da string
-	$dto = str_replace("'", "", $dto);																// Garante que a string não terá aspas.
+	$dto = str_replace("Controller", "", $_REQUEST['controller']);    		// Remove inicio da string.
+	$dto.='DTO';															// Adiciona DTO no final do que sobrou da string	
       
 	// Analisa o que é necessário executar
 	switch ($action) {
@@ -81,14 +78,29 @@ if (!isset($routes[$controller])) {
 		case 'index':
 
 			break;
+		case 'insert':
+			include_once 'app/view/' . $view . '.php';
+			break;
+
+		case 'update':
+			include_once 'app/view/' . $view . '.php';
+			break;
+
+		case 'view':
+			include_once 'app/view/' . $view . '.php';
+		break;
 
 		case 'save':     
 			switch ($dto) {
 				
-				case 'InvoiceDTO':
-					//$invoice = new InvoiceDTO($_REQUEST['numero'],$_REQUEST['path'],$_REQUEST['description']);
-					$invoice = new InvoiceDTO(null, "descricao", "nome", "caminho");
+				case 'InvoiceDTO':					
+					//$invoice = new InvoiceDTO(null, $_REQUEST['descricao'],$_REQUEST['nome']);
+					$invoice = new InvoiceDTO(null, "descricao", "nome");
 					$controller->save($invoice);
+					/**
+					 * Verficar se inseriu (senão é um exception)
+					 * include_once 'app/view/' . $view . '.php?success=Nota inserida com sucesso.';
+					 */
 					//include_once 'app/view/' . $view . '.php';
 					var_dump($invoice);
 					break;
@@ -124,8 +136,8 @@ if (!isset($routes[$controller])) {
 			switch ($dto) {
 
 				case 'InvoiceDTO':
-					//$invoice = new InvoiceDTO($_REQUEST['idnota'],$_REQUEST['path'],$_REQUEST['description']);
-					$invoice = new InvoiceDTO(1, "atualizado");
+					$invoice = new InvoiceDTO($_REQUEST['idnota'],$_REQUEST['path'],$_REQUEST['description']);
+					//$invoice = new InvoiceDTO(1, "atualizado");
 					$controller->edit($invoice);
 					//include_once 'app/view/' . $view . '.php';
 
