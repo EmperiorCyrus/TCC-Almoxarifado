@@ -16,11 +16,11 @@
    */
   class InvoiceDTO
   {
-    private $idinvoice;
-    private $name;
-    private $path;
-    private $description;
-    private $creation_date;
+    private $idinvoice;                           // ID padrão da nota-fiscal (NF).
+    private $name;                                // Nome da NF, usando padrão.
+    private $path;                                // Caminho da NF no sistema.
+    private $description;                         // Observação da NF dado pelo usuário.
+    private $creation_date;                       // Data da NF ao ser direcionado ao sistema
 
 
     /**
@@ -32,12 +32,12 @@
      * @param string  $path           - Sem obrigatoriedade
      * @param string  $creation_date  - Sem obrigatoriedade
      */
-    public function __construct(int $idinvoice = null, string $description = null, string $name = null, string $path = null, string $creation_date = null) {
-        $this->idinvoice     = $idinvoice;        // Encapsulando dados recebidos
-        $this->path          = $path;             // **
-        $this->name          = $name;             // **
-        $this->description   = $description;      // **
-        $this->creation_date = $creation_date;    // **
+    public function __construct(string $description, string $path, string $name = null, string $creation_date = null,int $idinvoice = null) {
+      $this->idinvoice     = $idinvoice;          // Encapsulando dados recebidos
+      $this->path          = $path;               // **
+      $this->name          = $name;               // **
+      $this->description   = $description;        // **
+      $this->creation_date = $creation_date;      // **
     }
 
     
@@ -50,7 +50,7 @@
     
     
     // Funções para obter dados
-    public function getIdinvoice():    ?   int { return $this->idinvoice; }
+    public function getIdinvoice():    ?   int { return intval($this->idinvoice); }
     public function getPath():         ?string { return $this->path; }
     public function getDescription():  ?string { return $this->description; }
     public function getName():         ?string { return $this->name; }

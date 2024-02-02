@@ -47,17 +47,23 @@
      * 
      * @return bool|array     - Boa (true) |  má execução (Exceptions)
      */
-    public function insert(InvoiceDTO $invoiceDTO): bool {
+    public function insert(InvoiceDTO $invoiceDTO) {
 
       //> Analiza execuções dentro da função de possiveis erros e falha.
       try {
 
+        // Obtendo valores antecipados para evitar conflitos com versões do PHP.
+        $name        = $invoiceDTO->getName();                                                          // relizando passagem por referencia
+        $description = $invoiceDTO->getDescription();        
+        $path        = $invoiceDTO->getPath();
+        
         // Montando Query para criar uma nova nota fiscal.
-        $insert_query = "INSERT INTO nota (nome, path, descricao) VALUES (:nome, :path, :descricao)";         // Query para inserir dados         
-        $insert_stmt = $this->conn->prepare($insert_query);                                                   // Preparando sintaxe SQL
-        $insert_stmt->bindParam(':nome',          $invoiceDTO->getName(),                   PDO::PARAM_STR);  // Dando valores aos espaços declarado
-        $insert_stmt->bindParam(':path',          $invoiceDTO->getPath(),                   PDO::PARAM_STR);  // **
-        $insert_stmt->bindValue(':descricao',     $invoiceDTO->getDescription()   ?? null,  PDO::PARAM_STR);  // **
+        $insert_query = "INSERT INTO nota (nome, path, descricao) VALUES (:nome,:path,:descricao)";     // Query para inserir dados         
+        $insert_stmt = $this->conn->prepare($insert_query);                                             // Preparando sintaxe SQL
+        $insert_stmt->bindValue(':nome',          $name          ?? null,  PDO::PARAM_STR);             // Dando valores aos espaços declarado
+        $insert_stmt->bindParam(':path',          $path,                   PDO::PARAM_STR);             // **
+        $insert_stmt->bindValue(':descricao',     $description   ?? null,  PDO::PARAM_STR);             // **
+
 
         // Verifica se a inserção foi bem-sucedida.
         if ($insert_stmt->execute()) {
@@ -69,11 +75,11 @@
 
 
       //> Tratativa de erro relacionado ao Banco de Dados.
-      } catch (PDOException $error_pdo){
+      } catch (PDOException $error){
 
         $text = ["[ ERROR ][ BD ] - [ INVOICE / CREATE ]"];                   // Salva topicos para log
-        $log = write_log::write($text, "error-pdo", $error_pdo);              // Chamando função para escrever erro do BD no log
-        return $error_pdo;                                                    // Retorna array ao controller com PDOException.
+        $log = write_log::write($text, "error-pdo", $error);                  // Chamando função para escrever erro do BD no log
+        return $error;                                                        // Retorna array ao controller com PDOException.
 
       //> Tratativa de erro relacionado ao Sistema.
       } catch (Exception $error_system) {
@@ -99,15 +105,16 @@
       //> Analiza execuções dentro da função de possiveis erros e falha.
       try {
     
-
+        // Obtendo valores antecipados para evitar conflitos com versões do PHP.
         $idinvoice   = $invoiceDTO->getIdinvoice();
         $description = $invoiceDTO->getDescription();
-        var_dump($idinvoice);
+        
         // Query e manilação para atualização de descrição da nota fiscal.
         $update_query = "UPDATE nota SET descricao = :new_description WHERE idnota = :idnota";
-        $update_stmt  = $this->conn->prepare($update_query);                                            // Preparando sintaxe SQL
-        $update_stmt->bindParam(':idnota',            $invoiceDTO->getIdinvoice(),       PDO::PARAM_INT);                // Dando valores aos espaços declarado.
-        $update_stmt->bindParam(':new_description',   $invoiceDTO->getDescription(),     PDO::PARAM_STR);                // **
+        $update_stmt  = $this->conn->prepare($update_query);                                            // Preparando sintaxe SQL        
+        $update_stmt->bindParam(':idnota',            $idinvoice,       PDO::PARAM_INT);                // Dando valores aos espaços declarado.        
+        $update_stmt->bindParam(':new_description',   $description,     PDO::PARAM_STR);                // **
+
 
         // Verifica se a execução é bem-sucedida.
         if ($update_stmt->execute()) {
@@ -141,47 +148,38 @@
      * Function responsável por deletar a nota-fiscal.
      * Além de deletar, ele registra ações relacionada a ela.
      * 
-     * @param InvoiceDTO      - classe que possui dados de nota-fiscal
+     * @param int             - 
      * 
      * @return string|array   - boa execução (Diretorio da nota) | má execução (Exceptions)
      */
-    public function delete(InvoiceDTO $invoiceDTO) {
+    public function delete($idnota) {
 
       //> Analiza execuções dentro da função de possiveis erros e falha.
       try {
 
-        $query = "SELECT idlote FROM lote WHERE idnota = :idnota";                              // Query para verificar se existe algum lote registrado na nota a ser apagado
-        $stmt  = $this->conn->prepare($query);                                                  // Preparando sintaxe SQL
-        $stmt->bindParam('idnota',     $invoiceDTO->getIdinvoice(),     PDO::PARAM_INT);        // Dando valor ao espaço declarado
-        $stmt->execute();                                                                       // Executando sintaxe
+        // Query para verificar existencia de uso de notas-fiscais em lote
+        $query = "SELECT idnota FROM lote WHERE idnota = :idnota";            // Query para obter caminho da nota fiscal
+        $stmt  = $this->conn->prepare($query);                                // Preparando sintaxe SQL
+        $stmt->bindParam(':idnota',      $idnota,      PDO::PARAM_INT);       // Dando valor ao espaço declarado
 
-        // Verificando se não existe nenhuma resposta
-        if ($stmt->rowCount() == 0) {
+        // Verifica se há uma boa execução
+        if ($stmt->execute()) {
 
-          // Variaveis reescritas
-          $query = "SELECT path FROM nota WHERE idnota = :idnota";                              // Query para obter caminho da nota fiscal
-          $stmt  = $this->conn->prepare($query);                                                // Preparando sintaxe SQL
-          $stmt->bindParam(':idnota',      $invoiceDTO->getIdinvoice(),      PDO::PARAM_INT);   // Dando valor ao espaço declarado
+          $result = $stmt->fetch(PDO::FETCH_ASSOC);                                         // Obtendo resultado da query.
 
-          // Aproveita o Select anterior para verificar se há nota correspodente ao ID.
-          // Verifica se há uma boa execução
-          if ($stmt->execute()) {
+          // Montando query para deleção de todos os dados da nota-fiscal referente ao ID.
+          $delete_query = "DELETE FROM nota WHERE idnota = :idnota";
+          $delete_stmt  = $this->conn->prepare($delete_query);
+          $delete_stmt->bindParam(':id_sent',         $idnota,         PDO::PARAM_INT);
 
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);                                           // Obtendo resultado da query.
+          // Verifica se a execução foi bem-sucedida
+          if ($delete_stmt->execute()) { 
 
-            // Montando query para deleção de todos os dados da nota-fiscal referente ao ID.
-            $delete_query = "DELETE FROM nota WHERE idnota = :idnota";
-            $delete_stmt  = $this->conn->prepare($delete_query);
-            $delete_stmt->bindParam(':id_sent',         $invoiceDTO->getIdinvoice(),         PDO::PARAM_INT);
-
-            // Verifica se a execução foi bem-sucedida
-            if ($delete_stmt->execute()) { 
-
-              $text =["[ DELETE ][ NOTA-FISCAL ] - [ID: {$invoiceDTO->getIdinvoice()} ]"];    // Salva topicos para log
-              $log = write_log::write($text, 'register');                                     // Solicita função para escrever registro.
-              return $result['path'];                                                         // Retornando o diretorio da nota
-            }
+            $text =["[ DELETE ][ NOTA-FISCAL ] - [ID: $idnota} ]"];                         // Salva topicos para log
+            $log = write_log::write($text, 'register');                                     // Solicita função para escrever registro.
+            return $result['path'];                                                         // Retornando o diretorio da nota
           }
+          
         }
       //> Tratativa de erro relacionado ao Banco de Dados.
       } catch (PDOException $error_pdo) {
@@ -223,7 +221,7 @@
           while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {   
             
             //instanciando uma nova class (DTO) para passar os parametros
-            $content = new InvoiceDTO($result['nome'], $result['path'], $result['descricao'], intval($result['idnota']), $result['data_criacao']);                        
+            $content = new InvoiceDTO($result['descricao'], $result['path'], $result['nome'], $result['data_criacao'],intval($result['idnota']));                        
             $invoices[intval($result['idnota'])] = $content;                  // Aramazenando dados e nomeando posição referente ao número do ID
           }
 
@@ -282,5 +280,8 @@
       }
     }
   }
+
+
+  
 
 ?>

@@ -30,8 +30,6 @@
     }
 
 
-    echo("<br>{$path_year}<br>");
-    echo("<br>{$current_month}<br>");
     return $path_year.'/Register_'. $current_month. '.log';              // Retornado caminho final
   }
 

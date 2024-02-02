@@ -14,7 +14,6 @@
 
   class ModelCategory {
 
-    static  $update_class = false;
 		private $conn;
 
 

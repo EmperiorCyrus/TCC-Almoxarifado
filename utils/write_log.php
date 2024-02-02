@@ -26,10 +26,8 @@
      */
     static function write($message_sent, $type, $error_sent = null) {
 
-      var_dump($error_sent);
-      echo("<br> function write_log");
       $date    = current_datetime('[d/m/Y] D - H:i:s - ');                                                  // Obtem a data atual numa formação expecifica
-      echo("<br>{$date}<br>");
+
       
 
       // Seleciona tipo de escrita para determinada ação.
@@ -58,7 +56,6 @@
       }
 
       $path = create_path_log();                                                                          // Obtendo caminho para a pasta
-      echo("<br>{^$path}<br>");
       file_put_contents($path, $message. PHP_EOL, FILE_APPEND);                                           // Indica caminho e mensagem a ser escrito
       //-                                                                                                 // FILE_APPEND - Impede que o conteúdo seja substituido, reescrevendo no final.
     }

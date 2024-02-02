@@ -2,7 +2,6 @@
   require_once("../app/controller/show_product.php");
   //require_once("../controller/show_product.php");
   
-  
   $info = new show_product();
 ?>
 
