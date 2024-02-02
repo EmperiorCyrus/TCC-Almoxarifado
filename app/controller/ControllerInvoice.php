@@ -10,7 +10,7 @@
 class ControllerInvoice
 {
 
-	private ModelInvoice $invoiceModel;
+	private $invoiceModel = [];
 
 	public function __construct()
 	{
@@ -28,7 +28,7 @@ class ControllerInvoice
 		return $this->invoiceModel->update($note);
 	}
 
-	public function delete(int $id): bool
+	public function delete(int $id)
 	{
 		return $this->invoiceModel->delete($id);
 	}

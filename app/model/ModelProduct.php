@@ -51,7 +51,7 @@
       try {
 
         $query = "SELECT nome, marca FROM produto WHERE nome = :nome AND marca = :marca";               // Query para verificar a existencia de um produto indêntico
-        $stmt = $conn->prepare($query);                                                                 // Preparando sintaxe SQL
+        $stmt = $this->conn->prepare($query);                                                                 // Preparando sintaxe SQL
         $stmt->bindParam(':nome',       $productDTO->getName(),       PDO::PARAM_STR);                  // Dando valor aos espaços resevados
         $stmt->bindParam(':marca',      $productDTO->getBrand(),      PDO::PARAM_STR);                  // **
         
@@ -74,7 +74,7 @@
             // Montando query para inserir novo produto
             $insert_query = "INSERT INTO produto (nome, marca, minimo, medida_unidade, fornecedor,categoria, descartavel, perecivel, armazem) 
                             VALUES (:nome, :marca, :minimo, :medida_unidade, :fornecedor, :categoria, :descartavel, :perecivel, :validade, :armazem)";
-            $insert_stmt = $conn->prepare($insert_query);                                               // Preparando sintaxe SQL
+            $insert_stmt = $this->conn->prepare($insert_query);                                               // Preparando sintaxe SQL
             $insert_stmt->bindParam(':nome',            $name,                    PDO::PARAM_STR);      // Dando valores aos espaços declarado
             $insert_stmt->bindParam(':marca',           $brand,                   PDO::PARAM_STR);      // **
             $insert_stmt->bindParam(':minimo',          $min,                     PDO::PARAM_INT);      // **
@@ -154,7 +154,7 @@
         // verifica se há execução bem-sucedida
         if ($stmt_query->execute()) {
 
-          $text = "[ UPDATE ][ PRODUCT ] - [ Produto ID: {$produtoDTO->getIdProduct()} ]";              // Salva topicos para log
+          $text = "[ UPDATE ][ PRODUCT ] - [ Produto ID: {$productDTO->getIdProduct()} ]";              // Salva topicos para log
           $log = write_log::write($text, "register");                                                   // Chamando função para escrever registro
           return true;                                                                                  // Retorna true ao controller indicando sucesso.
         } 
@@ -181,7 +181,7 @@
 
       try {
 
-        $query = "SELECT idproduto FROM"
+        $query = "SELECT idproduto FROM";
 
 
 

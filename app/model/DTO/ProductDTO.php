@@ -18,7 +18,7 @@
     private $name;           // Nome do produto #
     private $brand;          // Marca do produto #
     private $min;            // Valor minimo para restoque.
-    private $measurement     // Unidade de medida.
+    private $measurement ;    // Unidade de medida.
     private $perishable;     // Perecível #
     private $disposable;     // Descartável #
     private $creation_date;  // Data de criação
@@ -66,7 +66,7 @@
     public function setName($name):                  void { $this->name = $name; }
     public function setBrand($brand):                void { $this->brand = $brand; }
     public function setMin($min):                    void { $this->min = $min; }
-    public function setMeasurement($measurement):    void { $this->measurement = $measurement }
+    public function setMeasurement($measurement):    void { $this->measurement = $measurement; }
     public function setPerishable($perishable):      void { $this->perishable = $perishable; }
     public function setDisposable($disposable):      void { $this->disposable = $disposable; }
     public function setCreationDate($creation_date): void { $this->creation_date = $creation_date; }

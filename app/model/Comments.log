@@ -31,3 +31,15 @@ SELECT (SUM)entrada.quantidade, (SUM)saida.quantidade FROM entrada
 INNER JOIN entrada ON produto.idproduto = entrada.idproduto;
 INNER JOIN saida ON entrada.idproduto =  WHERE idproduto = idproduto;
 
+
+ERROR 0 BANCO DE DADOS        = Não conectado
+ERROR 1 INSERÇÃO DE DADOS     = Má sucedido
+ERROR 2 ATUALIZAÇÃO DE DADOS  = ///
+ERROR 3 DELEÇÃO DE DADOS      = ///
+ERROR 4 BD GERAL              = erro de uma execução do SQL
+ERROR 5 Sistema               = erro 
+ERROR 6 DADOS REPETIDOS       = 
+
+
+
+ERROR 404 ARQUIVO NÂO ENCONTRADO  =  
