@@ -140,7 +140,7 @@
 
     public function delete($userID) {
 
-      try {what
+      try {
         
         $query = "SELECT nome, email FROM user WHERE iduser = :iduser";
         $stmt  = $this->conn->prepare($query);
