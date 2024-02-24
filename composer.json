@@ -1,12 +1,18 @@
 {
-  "autoload":{
-    "psr-4":{
-      "App\\":"app/",
-      "Core\\":"core/",
-      "Utils\\":"utils/"
-    }, 
-    "require":{
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Core\\": "core/",
+      "Utils\\": "utils/"
+    },
+    "files": [
+      "app/library/functions/helpers.php"
+    ],
+    "require": {
       "phpmailer/phpmailer": "6.0.*"
     }
+  },
+  "require": {
+    "nikic/fast-route": "^1.3"
   }
 }
