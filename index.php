@@ -1,45 +1,20 @@
 <?php
-    session_start();
-    include "head.php";
-?>
 
+require 'vendor/autoload.php';
+use App\Controller\HomeController;
+use Core\Library\Router;
 
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper">
+$router = new Router;
 
- <?php
-    include "menusuperior.php";
-    include "menuprincipal.php";
-    //include "rotas.php";
- ?>
- 
+//DEFINIR ROTAS UNICAS
+$router->route('GET', '/', [HomeController::class, 'index']);
+$router->route('POST', '/teste', [HomeController::class, 'create']);
 
+//DEFINIR AGRUPAMENTO DE ROTAS POR UM PREFIXO
+$router->group('/admin', [
+  ['GET', '', [HomeController::class, 'admin']],
+  ['GET', '/criar', [HomeController::class, 'adminCreate']],
+  ['GET', '/{id:\d+}', [HomeController::class, 'adminSearch']],
+]);
 
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-  
-<?php
-  include "rotas.php";
-?>
-
-
-    
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-</body>
-
-
-
-<?php
-    include "footer.php";
-?>
+$router->run();
