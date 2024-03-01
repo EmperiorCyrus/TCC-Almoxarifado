@@ -1,6 +1,6 @@
 <?php
   //======================================================================
-  // MODEL - NOTA FISCAL
+  // MODEL - USUÁRIO
   //======================================================================
   namespace App\Model;
 
@@ -14,6 +14,8 @@
 
   /**
    *
+   * TODO: Checkout
+   * 
    * @author Wesley Portugal Santana - wesporsan01@gmail.com
    * @version 1.0 
    */
@@ -102,7 +104,7 @@
       $name     = $userDTO->getName();
       $email    = $userDTO->getEmail();
       $password = $userDTO->getPassword();
-      $type     = $userDTO->getType();
+      $type     = $userDTO->getIdusertype();
 
       // Query para atualizar dados de usuario
       $uptade_query = "UPDATE user SET nome = :nome, email = :email,  senha = :senha, tipo = :tipo WHERE idusuario = :id";
@@ -124,20 +126,26 @@
       }
 
 
-      //> Tratativa de erro relacionado ao Banco de Dados.
-    } catch (PDOException $error){
+        //> Tratativa de erro relacionado ao Banco de Dados.
+      } catch (PDOException $error){
 
-      # Retorno para log
+        # Retorno para log
 
-    //> Tratativa de erro relacionado ao Sistema.
-    } catch (Exception $error_system) {
+      //> Tratativa de erro relacionado ao Sistema.
+      } catch (Exception $error_system) {
 
-      # Retorno para log
+        # Retorno para log
+      }
+
     }
 
-    }
 
 
+
+    /**
+     * 
+     * 
+     */
     public function delete($userID) {
 
       try {
@@ -145,24 +153,26 @@
         $query = "SELECT nome, email FROM user WHERE iduser = :iduser";
         $stmt  = $this->conn->prepare($query);
         $stmt->bindParam(':iduser',        $userID,      PDO::PARAM_INT);
-        $stmt->execute();
 
+        if ($stmt->execute()) {
 
+          $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $delete_query = "DELETE from user WHERE iduser = :iduser";
-        $delete_stmt  = $this->conn->prepare($delete_query);
-        $delete_stmt->bindParam(':iduser',      $userID,      PDO::PARAM_INT);
-        
-        // Verificando se houve uma boa execução deleção de usuario
-        if ($delete_stmt->execute()) {
+          $delete_query = "DELETE from user WHERE iduser = :iduser";
+          $delete_stmt  = $this->conn->prepare($delete_query);
+          $delete_stmt->bindParam(':iduser',      $userID,      PDO::PARAM_INT);
+          
+          // Verificando se houve uma boa execução deleção de usuario
+          if ($delete_stmt->execute()) {
+            #LOG
+            #Usar $result no log.
 
-          #LOG
-        } else {
+          } else {
 
-          #LOG
-          #Retorno de erro
+            #LOG
+            #Retorno de erro
+          }
         }
-
 
       //> Tratativa de erro relacionado ao Banco de Dados.
       } catch (PDOException $error){
@@ -184,25 +194,42 @@
       
       try {
 
-        $selectQuery = "SELECT * FROM user WHERE id = :id;";
-        $selectStmt = $this->conn->prepare($selectQuery);
-        $selectStmt->bindParam(":id", $userID, PDO::PARAM_INT);
+        $query = "SELECT u.idtipo_usuario, u.nome, u.senha, u.email, t.nome AS tipo FROM usuario u
+                  INNER JOIN tipo_usuario t ON u.idtipo_usuario = t.id WHERE u.id = :id;";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id',   $userID,   PDO::PARAM_INT);
       
-        if($selectStmt->execute()) {
+        
+        var_dump($userID);
+        echo ("antes de executar");
+        if($stmt->execute()) {
+          echo ("depois de executar");
+
+          $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+          var_dump($result);
+          $user = new UserDTO($result['nome'], $result['email'], $result['senha'], $result['tipo']);
+          
+          return $user;
           #LOG
         } else {
-          #Log
+          #LOG
           #Retorno para uma má seleção
         }
 
       //> Tratativa de erro relacionado ao Banco de dados.
       } catch (PDOException $error) {
         # Retorno para o log
+        return "erroPDO";
       //> Tratativa de erro relacionado ao Sistema.
       } catch (Exception $errorSystem) {
+
+        return "errorSystem";
         # Retorno para o log
       }
     }
+
+
 
     public function selectAll() {
 
@@ -227,4 +254,6 @@
 
 
   }
+
+
 

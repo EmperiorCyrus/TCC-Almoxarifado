@@ -9,7 +9,7 @@
     private static $conn; // Conexão
 
     private $host = "localhost";
-    private $name = "almoxarifado";
+    private $name = "sga";
     private $user = "root";
     private $key  = "";
 

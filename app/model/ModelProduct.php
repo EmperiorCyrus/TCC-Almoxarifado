@@ -208,6 +208,8 @@
 
     }
 
+
+    
     /**
      * Function responsavel em recarregar todos os dados do produto.
      * Recarregar, refazer comando SQL para adquirir dados atualizados sobre produto,
