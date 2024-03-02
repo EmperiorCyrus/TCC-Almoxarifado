@@ -10,27 +10,15 @@
 <?php
 $cards = [
   [
-    "name" => "Almoxarifado",
+    "name" => "Produtos",
     "url" => "/"
   ],
   [
-    "name" => "Estoque",
+    "name" => "Estoques",
     "url" => "/"
   ],
   [
-    "name" => "Movimentação",
-    "url" => "/"
-  ],
-  [
-    "name" => "Outor",
-    "url" => "/"
-  ],
-  [
-    "name" => "Outor2",
-    "url" => "/"
-  ],
-  [
-    "name" => "Outor3",
+    "name" => "Perfil",
     "url" => "/"
   ],
 ];

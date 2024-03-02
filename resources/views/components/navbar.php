@@ -9,7 +9,10 @@
       <a href="/" class="nav-link">Home</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="/admin" class="nav-link">Contact</a>
+      <a href="/produtos" class="nav-link">Produtos</a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <a href="/perfil" class="nav-link">Perfil</a>
     </li>
   </ul>
 </nav>
