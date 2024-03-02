@@ -29,11 +29,23 @@ class HomeController
     var_dump($id);
   }
 
+  /**
+   * TODO: REMOVER PORQUE ISSO NÃO DEVERIA ESTAR AQUI
+   * É APENAS POR RAZÕES DE TESTES O PERFIL SER AQUI
+   *
+   * @return void
+   */
   public function perfil()
   {
     return view("resources/views/perfil.php");
   }
 
+  /**
+   * TODO: REMOVER PORQUE ISSO NÃO DEVERIA ESTAR AQUI
+   * É APENAS POR RAZÕES DE TESTES O INDEX DAS NOTAS SER AQUI
+   *
+   * @return void
+   */
   public function notas()
   {
     return view("resources/views/note/index.php");

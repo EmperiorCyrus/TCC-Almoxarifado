@@ -1,6 +1,13 @@
 <?php $active = "perfil" ?> <!-- CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGIAN ATUAL -->
 <?php include_once "components/head.php" ?>
-<h1 class="text-md-left text-sm-center pb-3 border-bottom">Perfil</h1>
+<div class="d-flex flex-column">
+  <ol class="breadcrumb float-sm-right">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active">Perfil</li>
+  </ol>
+  <h1 class="text-md-left text-sm-center pb-3 border-bottom">Perfil</h1>
+</div>
+
 <div class="row mt-4">
   <div class="col-5 col-sm-3">
     <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
