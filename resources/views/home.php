@@ -6,4 +6,44 @@
   adipisicing elit. Exercitationem
   veritatis
   ducimus eos sapiente nam earum impedit? Quos dolore a dolor.</p>
+<!-- index.php -->
+<?php
+$cards = [
+  [
+    "name" => "Almoxarifado",
+    "url" => "/"
+  ],
+  [
+    "name" => "Estoque",
+    "url" => "/"
+  ],
+  [
+    "name" => "Movimentação",
+    "url" => "/"
+  ],
+  [
+    "name" => "Outor",
+    "url" => "/"
+  ],
+  [
+    "name" => "Outor2",
+    "url" => "/"
+  ],
+  [
+    "name" => "Outor3",
+    "url" => "/"
+  ],
+];
+?>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <?php foreach ($cards as $card) { ?>
+      <div class="col-md-3">
+        <?php include "components/menu-card.php"; ?>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+
+
 <?php include_once "components/footer.php" ?>
