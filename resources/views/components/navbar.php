@@ -1,19 +1,22 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand navbar-dark w-100">
-  <!-- Left navbar links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-    </li>
-    <li class="nav-item d-none d-sm-inline-block">
-      <a href="/" class="nav-link">Home</a>
-    </li>
-    <li class="nav-item d-none d-sm-inline-block">
-      <a href="/produtos" class="nav-link">Produtos</a>
-    </li>
-    <li class="nav-item d-none d-sm-inline-block">
-      <a href="/perfil" class="nav-link">Perfil</a>
-    </li>
-  </ul>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"> SGA </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/produtos">Produtos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/perfil">Perfil</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 <!-- /.navbar -->
