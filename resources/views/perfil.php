@@ -1,5 +1,6 @@
 <?php $active = "perfil" ?> <!-- CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGIAN ATUAL -->
 <?php include_once "components/head.php" ?>
+<!-- BREADCRUMB -->
 <div class="d-flex flex-column">
   <ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -10,6 +11,7 @@
 
 <div class="row mt-4">
   <div class="col-5 col-sm-3">
+    <!-- Opções da barra lateral do perfil -->
     <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab"
         aria-controls="vert-tabs-home" aria-selected="true">Perfil</a>
@@ -21,6 +23,7 @@
         aria-controls="vert-tabs-settings" aria-selected="false">Configurações</a>
     </div>
   </div>
+  <!-- ABAS -->
   <div class="col-7 col-sm-9">
     <div class="tab-content" id="vert-tabs-tabContent">
       <!-- Uma aba -->

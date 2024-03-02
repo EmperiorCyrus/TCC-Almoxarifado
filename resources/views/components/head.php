@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título dinâmico -->
   <title>
     <?= isset($title) ? $title : "SGA" ?>
   </title>
@@ -18,5 +19,7 @@
 </head>
 
 <body>
+  <!-- Navbar -->
   <?php include_once "navbar.php" ?>
+  <!-- Inicio do body -->
   <main class="vh-100 mt-5 mx-5">
