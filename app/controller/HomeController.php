@@ -28,4 +28,9 @@ class HomeController
   {
     var_dump($id);
   }
+
+  public function perfil()
+  {
+    return view("resources/views/perfil.php");
+  }
 }

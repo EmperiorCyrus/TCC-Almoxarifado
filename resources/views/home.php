@@ -1,3 +1,4 @@
+<?php $active = "home" ?> <!-- CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGIAN ATUAL -->
 <?php include_once "components/head.php" ?>
 <h1 class="text-center text-xl font-weight-bold">Gerenciamento de almoxarifado</h1>
 <p class="text-sm font-italic text-center border-bottom border-bottom-1 pb-4 text-gray font-weight-bold">Lorem ipsum
@@ -19,7 +20,7 @@ $cards = [
   ],
   [
     "name" => "Perfil",
-    "url" => "/"
+    "url" => "/perfil"
   ],
 ];
 ?>

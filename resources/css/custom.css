@@ -2,3 +2,8 @@
   transform: scale(1.03);
   transition: all .2s;
 }
+
+.btn-outline-primary:hover {
+  transform: scale(1.03);
+  transition: all .3s;
+}

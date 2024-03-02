@@ -7,13 +7,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item <?= $active === 'home' ? 'active' : '' ?>">
         <a class="nav-link" href="/">Home</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <?= $active === 'produtos' ? 'active' : '' ?>">
         <a class="nav-link" href="/produtos">Produtos</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <?= $active === 'perfil' ? 'active' : '' ?>">
         <a class="nav-link" href="/perfil">Perfil</a>
       </li>
     </ul>
