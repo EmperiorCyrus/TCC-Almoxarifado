@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../../../vendor/adminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../../vendor/adminLTE-3.2.0/dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="../../../vendor/adminLTE-3.2.0/dist/css/custom.css">
+  <link rel="stylesheet" href="resources/css/custom.css">
 </head>
 
 <body>
