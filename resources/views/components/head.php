@@ -16,4 +16,6 @@
   <link rel="stylesheet" href="../../../vendor/adminLTE-3.2.0/dist/css/adminlte.min.css">
 </head>
 
-<body class="vh-100 mt-5 mx-5">
+<body>
+  <?php include_once "navbar.php" ?>
+  <main class="vh-100 mt-5 mx-5">

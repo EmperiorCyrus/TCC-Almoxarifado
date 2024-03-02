@@ -6,7 +6,7 @@ class HomeController
 {
   public function index()
   {
-    return view('resources/views/teste.php');
+    return view('resources/views/home.php');
   }
 
   public function create()
