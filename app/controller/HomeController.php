@@ -33,4 +33,9 @@ class HomeController
   {
     return view("resources/views/perfil.php");
   }
+
+  public function notas()
+  {
+    return view("resources/views/note/index.php");
+  }
 }

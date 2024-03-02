@@ -22,6 +22,10 @@ $cards = [
     "name" => "Perfil",
     "url" => "/perfil"
   ],
+  [
+    "name" => "Notas",
+    "url" => "/notas"
+  ],
 ];
 ?>
 <div class="container">

@@ -13,6 +13,9 @@
       <li class="nav-item <?= $active === 'produtos' ? 'active' : '' ?>">
         <a class="nav-link" href="/produtos">Produtos</a>
       </li>
+      <li class="nav-item <?= $active === 'notas' ? 'active' : '' ?>">
+        <a class="nav-link" href="/notas">Notas</a>
+      </li>
       <li class="nav-item <?= $active === 'perfil' ? 'active' : '' ?>">
         <a class="nav-link" href="/perfil">Perfil</a>
       </li>

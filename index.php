@@ -9,6 +9,7 @@ $router = new Router;
 //DEFINIR ROTAS UNICAS
 $router->route('GET', '/', [HomeController::class, 'index']);
 $router->route('GET', '/perfil', [HomeController::class, 'perfil']);
+$router->route('GET', '/notas', [HomeController::class, 'notas']);
 $router->route('POST', '/teste', [HomeController::class, 'create']);
 
 //DEFINIR AGRUPAMENTO DE ROTAS POR UM PREFIXO
