@@ -1,5 +1,5 @@
 <?php $active = "perfil" ?> <!-- CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGIAN ATUAL -->
-<?php include_once "components/head.php" ?>
+<?php include_once "app/view/components/head.php" ?>
 <!-- BREADCRUMB -->
 <div class="d-flex flex-column">
   <ol class="breadcrumb float-sm-right">
@@ -94,4 +94,4 @@
     </div>
   </div>
 </div>
-<?php include_once "components/footer.php" ?>
+<?php include_once "app/view/components/footer.php" ?>

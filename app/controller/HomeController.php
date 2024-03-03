@@ -6,7 +6,7 @@ class HomeController
 {
   public function index()
   {
-    return view('resources/views/home.php');
+    return view('app/view/home/index.php');
   }
 
   public function create()
@@ -37,7 +37,7 @@ class HomeController
    */
   public function perfil()
   {
-    return view("resources/views/perfil.php");
+    return view("app/view/perfil.php");
   }
 
   /**
@@ -48,6 +48,6 @@ class HomeController
    */
   public function notas()
   {
-    return view("resources/views/note/index.php");
+    return view("app/view/note/index.php");
   }
 }
