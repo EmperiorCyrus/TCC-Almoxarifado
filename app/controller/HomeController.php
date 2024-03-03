@@ -37,7 +37,7 @@ class HomeController
    */
   public function perfil()
   {
-    return view("app/view/perfil.php");
+    return view("app/view/batch/view.php");
   }
 
   /**

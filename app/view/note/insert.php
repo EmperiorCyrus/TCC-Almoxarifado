@@ -1,23 +1,21 @@
+<!-- CONFIGURAÇÃO DA VIEW -->
+<?php
+$active = "notas";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+$navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
+$footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+?>
 
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Cadastro de nota fiscal</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="">Home</a></li>
-                    <li class="breadcrumb-item active"><a
-                            href="index.php?controller=ControllerInvoice&action=index">Notas fiscais</a></li>
-                    <li class="breadcrumb-item active">Cadastrar</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+<?php include "app/view/components/head.php" ?>
+<!-- BREADCRUMB -->
+<div class="d-flex flex-column">
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="">Home</a></li>
+        <li class="breadcrumb-item active"><a href="index.php?controller=ControllerInvoice&action=index">Notas
+                fiscais</a></li>
+        <li class="breadcrumb-item active">Cadastrar</li>
+    </ol>
+    <h1 class="text-md-left text-sm-center pb-3 border-bottom">Cadastro de nota fiscal</h1>
 </div>
-<!-- /.content-header -->
 
 <!-- Main content -->
 <section class="content">
@@ -29,7 +27,7 @@
             <!-- /.card-header -->
             <div class="card-body">
 
-                <form action="index.php?controller=ControllerInvoice&action=save" method="post" enctype="multipart/form-data">
+                <form action="#" method="post" enctype="multipart/form-data">
                     <input type="hidden" nome="controller" value="ControllerInvoice">
                     <input type="hidden" nome="action" value="save">
                     <!-- MAX_FILE_SIZE deve preceder o campo input -->
@@ -56,10 +54,12 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Descrição</label>
-                        <input type="text" class="form-control" id="description" name="description" required>
+                        <textarea class="form-control" id="description" name="description" draggable="false" rows="5"
+                            required></textarea>
                     </div>
-                    <div class="form-group">                        
-                        <button type="submit" onclick="validateForm()" class="btn btn-primary col-md-3 col-sm-6 col-12">Cadastrar</button>
+                    <div class="form-group">
+                        <button type="submit" onclick="validateForm()"
+                            class="btn btn-primary col-md-3 col-sm-6 col-12">Cadastrar</button>
                     </div>
                 </form>
                 <script>
@@ -103,12 +103,12 @@
                     }
 
                     <?php
-                        if (isset($_SESSION['app/view/note/insert']['sucess'])){                        
-                    ?>
+                    if (isset($_SESSION['app/view/note/insert']['sucess'])) {
+                        ?>
                         alert('<?= $_SESSION['app/view/note/insert']['sucess']; ?>');
-                    <?php
-                        }
-                        unset($_SESSION['app/view/note/insert']);
+                        <?php
+                    }
+                    unset($_SESSION['app/view/note/insert']);
                     ?>
                 </script>
             </div>
@@ -122,3 +122,5 @@
     </div><!--/. container-fluid -->
 </section>
 <!-- /.content -->
+
+<?php include_once "app/view/components/footer.php" ?>
