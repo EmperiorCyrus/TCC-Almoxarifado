@@ -1,5 +1,12 @@
-<?php $active = "home" ?> <!-- CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGIAN ATUAL -->
+<!-- CONFIGURAÇÃO DA VIEW -->
+<?php
+  $active = "home";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+  $navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
+  $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+?>
+
 <?php include_once "app/view/components/head.php" ?>
+
 <!-- Título -->
 <h1 class="text-center text-xl font-weight-bold">Gerenciamento de almoxarifado</h1>
 <!-- TODO: Mudar esse texto aqui -->

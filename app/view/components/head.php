@@ -20,6 +20,6 @@
 
 <body>
   <!-- Navbar -->
-  <?php include_once "navbar.php" ?>
+  <?php isset($navbar) && $navbar === true ? include_once "navbar.php" : null ?>
   <!-- Inicio do body -->
   <main class="vh-100 mt-5 mx-5">

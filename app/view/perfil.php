@@ -1,4 +1,10 @@
-<?php $active = "perfil" ?> <!-- CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGIAN ATUAL -->
+<!-- CONFIGURAÇÃO DA VIEW -->
+<?php
+  $active = "perfil";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+  $navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
+  $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+?>
+
 <?php include_once "app/view/components/head.php" ?>
 <!-- BREADCRUMB -->
 <div class="d-flex flex-column">
