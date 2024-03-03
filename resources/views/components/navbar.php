@@ -1,5 +1,6 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
   <a class="navbar-brand" href="#"> SGA </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +21,13 @@
         <a class="nav-link" href="/perfil">Perfil</a>
       </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="btn btn-danger" href="#">Log-out</a>
+      </li>
+    </ul>
+
   </div>
+
 </nav>
 <!-- /.navbar -->

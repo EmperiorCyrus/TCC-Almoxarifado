@@ -62,7 +62,7 @@
             <input type="email" class="form-control mb-3" placeholder="Email..." id="email-novo" name="novoEmail"
               required>
           </div>
-          <button type="submit" class="btn btn-outline-primary">Mudar email</button>
+          <button type="submit" class="btn btn-outline-primary btn-sga-animation">Mudar email</button>
         </form>
       </div>
       <!-- Mudar senha -->
@@ -79,16 +79,17 @@
             <input type="password" class="form-control mb-3" placeholder="Senha..." id="senha-nova-confirmar"
               name="senhaNovaConfirmar" required>
           </div>
-          <button type="submit" class="btn btn-outline-primary">Mudar senha</button>
+          <button type="submit" class="btn btn-outline-primary btn-sga-animation">Mudar senha</button>
         </form>
       </div>
       <!-- Configurações -->
       <div class="tab-pane fade" id="vert-tabs-settings" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
-        Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales
-        tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique.
-        Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget
-        dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac
-        habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+        <h2 class="text-xl text-capitalize border-bottom pb-3">Configurações</h2>
+        <a href="" class="btn btn-outline-danger custom-sga-animation-hover mb-4">Log-out</a>
+        <form action="#" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger custom-sga-animation-hover">DELETAR CONTA!</button>
+        </form>
       </div>
     </div>
   </div>
