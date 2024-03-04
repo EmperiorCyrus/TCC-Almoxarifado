@@ -1,8 +1,8 @@
 <!-- CONFIGURAÇÃO DA VIEW -->
 <?php
-  $active = "notas";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
-  $navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
-  $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+$active = "notas";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+$navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
+$footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
 ?>
 
 <?php include "app/view/components/head.php" ?>
@@ -21,7 +21,8 @@
         <!-- Botão de cadastrar -->
         <div class="d-flex justify-content-start">
             <!-- TODO: MUDAR O LINK DESSE BOTÃO PARA O LUGAR QUE CRIA NOTAS -->
-            <button type="button" onclick="window.location.href='/'" class="btn btn-success mb-4">Cadastrar</button>
+            <button type="button" onclick="window.location.href='/notas/criar'"
+                class="btn btn-success mb-4">Cadastrar</button>
         </div>
 
         <!-- Tabela -->

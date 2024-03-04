@@ -1,6 +1,6 @@
 <!-- CONFIGURAÇÃO DA VIEW -->
 <?php
-$active = "notas";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+$active = "saidas";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
 $navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
 $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
 ?>
@@ -9,8 +9,8 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
 <!-- BREADCRUMB -->
 <div class="d-flex flex-column">
     <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="">Home</a></li>
-        <li class="breadcrumb-item active"><a href="index.php?controller=ControllerInvoice&action=index">Saídas</a></li>
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active"><a href="/saidas">Saídas</a></li>
         <li class="breadcrumb-item active">Visualizar detalhes</li>
     </ol>
     <h1 class="text-md-left text-sm-center pb-3 border-bottom">Visualização de saída</h1>

@@ -1,8 +1,8 @@
 <!-- CONFIGURAÇÃO DA VIEW -->
 <?php
-  $active = "home";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
-  $navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
-  $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+$active = "home";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+$navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
+$footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
 ?>
 
 <?php include_once "app/view/components/head.php" ?>
@@ -21,19 +21,23 @@
 $cards = [
   [
     "name" => "Produtos",
-    "url" => "/"
-  ],
-  [
-    "name" => "Estoques",
-    "url" => "/"
-  ],
-  [
-    "name" => "Perfil",
-    "url" => "/perfil"
+    "url" => "/produtos"
   ],
   [
     "name" => "Notas",
     "url" => "/notas"
+  ],
+  [
+    "name" => "Lotes",
+    "url" => "/lotes"
+  ],
+  [
+    "name" => "Entradas",
+    "url" => "/entradas"
+  ],
+  [
+    "name" => "Saídas",
+    "url" => "/saidas"
   ],
 ];
 ?>

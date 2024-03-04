@@ -17,13 +17,22 @@
       <li class="nav-item <?= $active === 'notas' ? 'active' : '' ?>">
         <a class="nav-link" href="/notas">Notas</a>
       </li>
-      <li class="nav-item <?= $active === 'perfil' ? 'active' : '' ?>">
-        <a class="nav-link" href="/perfil">Perfil</a>
+      <li class="nav-item <?= $active === 'lotes' ? 'active' : '' ?>">
+        <a class="nav-link" href="/lotes">Lotes</a>
+      </li>
+      <li class="nav-item <?= $active === 'entradas' ? 'active' : '' ?>">
+        <a class="nav-link" href="/entradas">Entradas</a>
+      </li>
+      <li class="nav-item <?= $active === 'saidas' ? 'active' : '' ?>">
+        <a class="nav-link" href="/saidas">Saídas</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item <?= $active === 'saidas' ? 'active' : '' ?>">
+        <a class="nav-link" href="/perfil">Perfil</a>
+      </li>
       <li class="nav-item">
-        <a class="btn btn-danger" href="#">Log-out</a>
+        <a class="btn btn-danger" href="/logout">Log-out</a>
       </li>
     </ul>
 

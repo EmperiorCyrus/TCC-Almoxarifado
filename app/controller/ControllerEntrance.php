@@ -10,7 +10,27 @@ class ControllerEntrance
 
     public function __construct()
     {
-        $this->entranceModel = new ModelEntrance();
+        // $this->entranceModel = new ModelEntrance();  // Está dando um errozinho de driver na hora de mostrar a tela
+    }
+
+    /**
+   * Método que retorna a view de listagem de entradas
+   *
+   * @return void
+   */
+    public function index()
+    {
+        return view("app/view/entrance/index.php");
+    }
+
+    /**
+     * Método responsável por criar uma nova entrada
+     *
+     * @return void
+     */
+    public function create()
+    {
+        return view("app/view/entrance/insert.php");
     }
 
     public function insert(EntranceDTO $entrance): bool
