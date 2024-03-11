@@ -1,82 +1,100 @@
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Lista de Lote(s)</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="">Home</a></li>
-                    <li class="breadcrumb-item active">Lista de notas</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
+<?php include "app/view/components/footer.php" ?>
+<!-- CONFIGURAÇÃO DA VIEW -->
+<?php
+$active = "lotes";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+$navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
+$footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+?>
 
+<?php include "app/view/components/head.php" ?>
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title"></h3>
-                <button type="button"
-                    onclick="window.location.href='index.php?controller=ControllerBatch&action=insert'"
-                    class="btn btn-block btn-success">Cadastrar</button>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-                <table id="datatable" class="table table-bordered table-striped">
-                    <thead>
+        <!-- BREADCRUMB -->
+        <div class="d-flex flex-column">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">Lotes</li>
+            </ol>
+            <h1 class="mb-4">Lista de lote(s)</h1>
+        </div>
+
+        <!-- Botão de cadastrar -->
+        <div class="d-flex justify-content-start">
+            <!-- TODO: MUDAR O LINK DESSE BOTÃO PARA O LUGAR QUE CRIA NOTAS -->
+            <button type="button" onclick="window.location.href='/lotes/criar'"
+                class="btn btn-success mb-4">Cadastrar</button>
+        </div>
+
+        <!-- Tabela -->
+        <div class="table-responsive">
+            <table id="datatable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Data de registro
+                        </th>
+                        <th>
+                            Código
+                        </th>
+                        <th>
+                            Nota relacionada
+                        </th>
+                        <th>
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($notes as $note) {
+                        ?>
                         <tr>
-                            <th>
-                                Data de registo
-                            </th>
-                            <th>
-                                Codigo
-                            </th>
-                            <th>
-                                Nota relacionada
-                            </th>
-                            <th>
-                                Ação                            
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Internet
-                                Explorer 4.0
+                            <td>
+                                <?= $note->getName(); ?>
                             </td>
                             <td>
-                                Win 95
+                                <?= $note->getNumero(); ?>
                             </td>
                             <td>
-                                Win 95
+                                <?= $note->getDescription(); ?>
                             </td>
                             <td>
-                                <a href="index.php?controller=ControllerBatch&action=edit&id=<?php ?>"
+                                <a href="<?= $note->getPath(); ?>" target="_blank"> Arquivo </a>
+                            </td>
+                            <th>
+                                <?= $note->getCreation_date(); ?>
+                            </th>
+                            <td>
+                                <a href="index.php?controller=ControllerInvoice&action=edit&id=<?= $note->getIdinvoice(); ?>"
                                     class="btn btn-primary">Editar</a>
-                                <a href="index.php?controller=ControllerBatch&action=delete&id=<?php ?>"
+                                <a href="index.php?controller=ControllerInvoice&action=delete&id=<?= $note->getIdinvoice(); ?>"
                                     class="btn btn-danger">Excluir</a>
+
                             </td>
                         </tr>
+                        <?php
+                    }
+                    ?>
 
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Rendering engine</th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <!-- /.card-body -->
-
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>
+                            Data de registro
+                        </th>
+                        <th>
+                            Código
+                        </th>
+                        <th>
+                            Nota relacionada
+                        </th>
+                        <th>
+                            Ações
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
     </div><!--/. container-fluid -->
 </section>
