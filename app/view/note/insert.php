@@ -1,129 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo Estilizado com AdminLTE</title>
+<!-- CONFIGURAÇÃO DA VIEW -->
+<?php
+$active = "notas";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+$navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
+$footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+?>
 
-  <!-- AdminLTE CSS -->
-  <link rel="stylesheet" href="caminho/para/adminlte/3.2.0/css/adminlte.min.css">
+<?php include "app/view/components/head.php" ?>
+<!-- BREADCRUMB -->
+<div class="d-flex flex-column">
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active"><a href="/notas">Notas
+                fiscais</a></li>
+        <li class="breadcrumb-item active">Cadastrar</li>
+    </ol>
+    <h1 class="text-md-left text-sm-center pb-3 border-bottom">Cadastro de nota fiscal</h1>
+</div>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-  <!-- Bootstrap CSS (opcional, se necessário) -->
-  <!-- <link rel="stylesheet" href="caminho/para/bootstrap/css/bootstrap.min.css"> -->
-</head>
-<body class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-  <div class="wrapper">
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-      </ul>
-      <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="fas fa-user"></i> John Doe
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-header">John Doe</span>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-sign-out-alt mr-2"></i> Sair
-            </a>
-          </div>
-        </li>
-      </ul>
-    </nav>
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="#" class="brand-link">
-        <span class="brand-text font-weight-light">AdminLTE</span>
-      </a>
-
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>Dashboard</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-cog"></i>
-                <p>Configurações</p>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0">Dashboard</h1>
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Formulário de registro de nota fiscal.</h3>
             </div>
-          </div>
-        </div>
-      </div>
-      <!-- /.content-header -->
+            <!-- /.card-header -->
+            <div class="card-body">
 
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid">
-          <!-- Small boxes (Stat box) -->
-          <div class="row">
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h3>150</h3>
-                  <p>New Orders</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-bag"></i>
-                </div>
-              </div>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <input type="hidden" nome="controller" value="ControllerInvoice">
+                    <input type="hidden" nome="action" value="save">
+                    <!-- MAX_FILE_SIZE deve preceder o campo input -->
+                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                    <div class="form-group">
+                        <label for="name">Numero</label>
+                        <input type="text" class="form-control" id="numero" name="numero" required>
+                        <p class="form-text text-muted">O numero da nota fiscal facilitará busca futuras. Por isso este
+                            campo é
+                            *obrigatório.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="path">Arquivo</label>
+
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="path" name="path" required>
+                                <label class="custom-file-label" for="exampleInputFile">Selecionar arquivo</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Upload</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea class="form-control" id="description" name="description" draggable="false" rows="5"
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" onclick="validateForm()"
+                            class="btn btn-primary col-md-3 col-sm-6 col-12">Cadastrar</button>
+                    </div>
+                </form>
+                <script>
+                    // Valida o nome da nota fiscal
+                    function validateNumero() {
+                        var numero = document.getElementById("numero").value;
+
+                        if (numero === "") {
+                            alert("O numero da nota fiscal deve ser preenchido.");
+                            return false;
+                        }
+
+                        return true;
+                    }
+
+                    // Valida o caminho do arquivo
+                    function validatePath() {
+                        var path = document.getElementById("path").value;
+
+                        if (path === "") {
+                            alert("Você deve fazer upload do arquivo referente a nota.");
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    // Valida a descricao da nota fiscal 
+                    function validateDescription() {
+                        var description = document.getElementById("description").value;
+
+                        if (description === "") {
+                            alert("A descrição da nota fiscal deve ser preenchida.");
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    // Valida os dados do formulário
+                    function validateForm() {
+                        return validateNumero() && validatePath() && validateDescription();
+                    }
+
+                    <?php
+                    if (isset($_SESSION['app/view/note/insert']['sucess'])) {
+                        ?>
+                        alert('<?= $_SESSION['app/view/note/insert']['sucess']; ?>');
+                        <?php
+                    }
+                    unset($_SESSION['app/view/note/insert']);
+                    ?>
+                </script>
             </div>
-          </div>
-          <!-- /.row -->
+            <!-- /.card-body -->
+
         </div>
-        <!-- /.container-fluid -->
-      </section>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+        <!-- /.card -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-inline">
-        Anything you want
-      </div>
-      <strong>AdminLTE &copy; 2024</strong>
-    </footer>
-  </div>
-  <!-- ./wrapper -->
+        <!-- /.row -->
 
-  <!-- AdminLTE Scripts -->
-  <script src="caminho/para/adminlte/3.2.0/js/adminlte.min.js"></script>
-</body>
-</html>
+    </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->
+
+<?php include_once "app/view/components/footer.php" ?>

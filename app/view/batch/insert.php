@@ -1,87 +1,209 @@
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Cadastro de lote</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="index.php?controller=ControllerBatch&action=index">Lista
-                            de lotes</a></li>
-                    <li class="breadcrumb-item active">Cadastrar</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
+<!-- CONFIGURAÇÃO DA VIEW -->
+<?php
+$active = "lotes";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+$navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
+$footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+?>
 
+<?php include "app/view/components/head.php" ?>
+<!-- BREADCRUMB -->
+<div class="d-flex flex-column">
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active"><a href="/lotes">Lotes</a>
+        </li>
+        <li class="breadcrumb-item active">Cadastrar</li>
+    </ol>
+    <h1 class="text-md-left text-sm-center pb-3 border-bottom">Cadastro de lote</h1>
+</div>
 
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Formulário de registro de novo lote.</h3>
+                <h3 class="card-title">Formulário de registro de lotes.</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form action="index.php?controller=ControllerBath&action=save" method="post">
+
+                <form action="index.php?controller=lote&action=save" method="post">
                     <div class="form-group">
-                        <label for="data_cadastro">Data de Cadastro</label>
-                        <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" required>
+                        <label for="dataCadastro">Data de cadastro</label>
+                        <input type="text" class="form-control" id="dataCadastro" name="dataCadastro"
+                            placeholder="Insira a data de cadastro do lote" required>
                     </div>
                     <div class="form-group">
                         <label for="codigo">Código</label>
-                        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="CÓDIGO">
+                        <input type="text" class="form-control" id="codigo" name="codigo"
+                            placeholder="Insira a codigo do lote ">
                     </div>
                     <div class="form-group">
-                        <label for="id_nota">Id Nota</label>
-                        <input type="text" class="form-control" id="id_nota" name="id_nota" placeholder="ID DA NOTA"
-                            required>
+                        <label for="idNota">Nota relacionada</label>
+                        <select name="idNota" id="idNota" class="form-control">
+                            <?php foreach ($notas as $nota) { ?>
+                                <option value="<?= $nota . id ?>">Nota1</option>
+                            <?php } ?>
+                        </select>
                     </div>
                     <button type="submit" onclick="validateForm()" class="btn btn-primary">Cadastrar</button>
                 </form>
+                <script>
+                    // Valida o nome da nota fiscal
+                    function validateNome() {
+                        var nome = document.getElementById("nome").value;
+
+                        if (nome === "") {
+                            alert("O nome do produto deve ser informado.");
+                            return false;
+                        }
+
+                        return true;
+                    }
+
+                    // Valida o caminho do arquivo
+                    function validateMarca() {
+                        var marca = document.getElementById("marca").value;
+
+                        if (marca === "") {
+                            alert("A Marca do produto deve ser informada.");
+                            return false;
+                        }
+                        return true;
+                    }
+                    function validatePerecivel() {
+                        var perecivel = document.getElementById("perecivel").value;
+
+                        if (perecivel === "") {
+                            alert("Deve ser informado se o produto é perecivel ou não.");
+                            return false;
+                        }
+
+                        return true;
+                    }
+
+                    // Valida o caminho do arquivo
+                    function validateDescartavel() {
+                        var descartavel = document.getElementById("descartavel").value;
+
+                        if (descartavel === "") {
+                            alert("Deve ser informado se o produto é descartavel ou não");
+                            return false;
+                        }
+                        return true;
+                    }
+                    // Valida os dados do formulário
+                    function validateForm() {
+                        return validateNome() && validateMarca() && validatePerecivel() && validateDescartavel();
+                    }
+
+                    function showDataValidade() {
+                        const perecivelInputCheckbox = document.getElementById("perecivel");
+                        const dataValidadeInput = document.getElementById("dataValidade");
+
+                        dataValidadeInput.classList.toggle("d-none");
+
+                        if (perecivelInputCheckbox.checked) {
+                            dataValidadeInput.setAttribute("required", "true");
+                        } else {
+                            dataValidadeInput.setAttribute("required", "false");
+                        }
+
+                    }
+                </script>
             </div>
-            <script>
-                // Valida o nome da nota fiscal
-                function validateData() {
-                    var data_cadastro = document.getElementById("data_cadastro").value;
-
-                    if (data_cadastro === "") {
-                        alert("A data do lote deve ser preenchida.");
-                        return false;
-                    }
-
-                    return true;
-                }
-
-                // Valida o caminho do arquivo
-                function validateIdnota() {
-                    var id_nota = document.getElementById("id_nota").value;
-
-                    if (id_nota === "") {
-                        alert("O Id da nota deve ser informado");
-                        return false;
-                    }
-                    return true;
-                }
-                // Valida os dados do formulário
-                function validateForm() {
-                    return validateData() && validateIdnota();
-                }
-            </script>
+            <!-- /.card-body -->
 
         </div>
-        <!-- /.card-body -->
+        <!-- /.card -->
 
-    </div>
-    <!-- /.card -->
-
-    <!-- /.row -->
+        <!-- /.row -->
 
     </div><!--/. container-fluid -->
 </section>
 <!-- /.content -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+        <div class="container">
+            <h1>Cadastro de Produto</h1>
+            <form action="index.php?controller=lote&action=save" method="post">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Insira o nome do produto"required>
+        </div>
+        <div class="form-group">
+            <label for="marca">Marca</label>
+            <input type="text" class="form-control" id="marca" name="marca" placeholder="Insira a marca do produto ">
+        </div>
+        <div class="form-group">
+            <label for="perecivel">Perecivel</label>
+            <input type="text" class="form-control" id="perecivel" name="perecivel" placeholder="Informe se o produto é perecivel" required>
+        </div>
+        <div class="form-group">
+            <label for="descartavel">Descartavel</label>
+            <input type="text" class="form-control" id="descartavel" name="descartavel" placeholder="Informe se o produto é descartavel" required>
+        </div>
+        <button type="submit" onclick="validateForm()" class="btn btn-primary">Cadastrar</button>
+        </form>
+        </div>
+        <script>
+            // Valida o nome da nota fiscal
+            function validateNome() {
+                var nome = document.getElementById("nome").value;
+
+                if (nome === "") {
+                    alert("O nome do produto deve ser informado.");
+                    return false;
+                }
+
+                return true;
+            }
+
+            // Valida o caminho do arquivo
+            function validateMarca() {
+                var marca = document.getElementById("marca").value;
+
+                if (marca === "") {
+                    alert("A Marca do produto deve ser informada.");
+                    return false;
+                }
+                return true;
+            }
+            function validatePerecivel() {
+                var perecivel = document.getElementById("perecivel").value;
+
+                if (perecivel === "") {
+                    alert("Deve ser informado se o produto é perecivel ou não.");
+                    return false;
+                }
+
+                return true;
+            }
+
+            // Valida o caminho do arquivo
+            function validateDescartavel() {
+                var descartavel = document.getElementById("descartavel").value;
+
+                if (descartavel === "") {
+                    alert("Deve ser informado se o produto é descartavel ou não");
+                    return false;
+                }
+                return true;
+            }
+            // Valida os dados do formulário
+            function validateForm() {
+                return validateNome() && validateMarca() && validatePerecivel() && validateDescartavel() ;
+            }
+        </script> -->
+<?php include "app/view/components/footer.php" ?>

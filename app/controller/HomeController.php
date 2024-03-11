@@ -6,26 +6,16 @@ class HomeController
 {
   public function index()
   {
-    return view('resources/views/teste.php');
+    return view('app/view/home/index.php');
   }
 
-  public function create()
+  /**
+   * É APENAS POR RAZÕES DE TESTES O PERFIL SER AQUI
+   *
+   * @return void
+   */
+  public function perfil()
   {
-    var_dump('teste');
-  }
-
-  public function admin()
-  {
-    var_dump('admin');
-  }
-
-  public function adminCreate()
-  {
-    var_dump('criou');
-  }
-
-  public function adminSearch($id)
-  {
-    var_dump($id);
+    return view("app/view/perfil.php");
   }
 }

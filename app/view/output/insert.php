@@ -1,61 +1,73 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de nota fiscal</title>
+<!-- CONFIGURAÇÃO DA VIEW -->
+<?php
+$active = "saidas";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+$navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
+$footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+?>
 
-    <!-- Estilos do AdminLTE -->
-    <link rel="stylesheet" href="/sga//vendor/adminlte/dist/css/adminlte.min.css">
+<?php include "app/view/components/head.php" ?>
+<!-- BREADCRUMB -->
+<div class="d-flex flex-column">
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active"><a href="/saidas">Saídas</a></li>
+        <li class="breadcrumb-item active">Registrar</li>
+    </ol>
+    <h1 class="text-md-left text-sm-center pb-3 border-bottom">Registro de saída</h1>
+</div>
 
-    <!-- Bootstrap CSS (opcional, se necessário) -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- Main content -->
+<section class="content mx-auto mt-4">
+    <div class="container-fluid w-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Formulário de registro de saídas.</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body class="hold-transition sidebar-mini">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Cadastro de nota fiscal</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="index.php?controller=ControllerProduct&action=index">Produtos</a></li>
-                        <li class="breadcrumb-item active">Cadastrar</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+                <form action="index.php?controller=lote&action=save" method="post">
+                    <div class="form-group">
+                        <label for="data_cadastro">Data Cadastro</label>
+                        <input type="date" class="form-control" id="data_cadastro" name="data_cadastro"
+                            placeholder="Insira a data da saida." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade</label>
+                        <input type="text" class="form-control" id="quantidade" name="quantidade"
+                            placeholder="Insira a quantidade da saida.">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" onclick="validateForm()"
+                            class="btn btn-outline-success w-100">Cadastrar</button>
+                    </div>
+                </form>
+                <script>
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Formulário de registro de nota fiscal.</h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <form action="index.php?controller=lote&action=save" method="post">
-                        <div class="form-group">
-                            <label for="data_cadastro">Data Cadastro</label>
-                            <input type="date" class="form-control" id="data_cadastro" name="data_cadastro" placeholder="Insira a data da saida." required>
-                        </div>
-                        <div class="form-group">
-                            <label for="quantidade">Quantidade</label>
-                            <input type="text" class="form-control" id="quantidade" name="quantidade" placeholder="Insira a quantidade da saida.">
-                        </div>
-                        <button type="submit" onclick="return validateForm()" class="btn btn-primary">Cadastrar</button>
-                    </form>
-                </div>
-                <!-- /.card-body -->
+                    function validateData() {
+                        var data_cadastro = document.getElementById("data_cadastro").value;
+
+                        if (data_cadastro === "") {
+                            alert("A data da saida deve ser informada");
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    function validateQuantidade() {
+                        var quantidade = document.getElementById("quantidade").value;
+
+                        if (quantidade === "") {
+                            alert("A quantidade da saida deve ser informada.");
+                            return false;
+                        }
+                        return true;
+                    }
+                    // Valida os dados do formulário
+                    function validateForm() {
+                        return validateData() && validateQuantidade();
+                    }
+                </script>
             </div>
             <!-- /.card -->
         </div>
@@ -63,8 +75,34 @@
     </section>
     <!-- /.content -->
 
-    <!-- Scripts do AdminLTE e outros scripts (opcional) -->
-    <script src="caminho/para/adminlte/3.2.0/js/adminlte.min.js"></script>
-    <!-- Outros scripts que você pode precisar -->
-</body>
-</html>
+<!-- <div class="container">
+    <h1>Saida</h1>
+
+</div> -->
+<!-- <script>
+            
+            function validateData() {
+                var data_cadastro = document.getElementById("data_cadastro").value;
+
+                if (data_cadastro === "") {
+                    alert("A data da saida deve ser informada");
+                    return false;
+                }
+                return true;
+            }
+
+            function validateQuantidade() {
+                var quantidade = document.getElementById("quantidade").value;
+
+                if (quantidade === "") {
+                    alert("A quantidade da saida deve ser informada.");
+                    return false;
+                }
+                return true;
+            }
+            // Valida os dados do formulário
+            function validateForm() {
+                return validateData() && validateQuantidade();
+            }
+        </script> -->
+<?php include "app/view/components/footer.php" ?>
