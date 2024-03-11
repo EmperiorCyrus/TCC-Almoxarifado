@@ -1,6 +1,6 @@
 ## Gerenciamento de almoxarifado
 
-- Se puderem começar a escrever o README eu agradeceria :D
+- Se puderem começar a escrever o README eu agradeceria. :D
 
 ## Como começar a usar projeto
 
