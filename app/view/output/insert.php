@@ -39,7 +39,7 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                     </div>
                     <div class="text-center">
                         <button type="submit" onclick="validateForm()"
-                            class="btn btn-outline-success w-100">Cadastrar</button>
+                            class="btn btn-primary d-block">Cadastrar</button>
                     </div>
                 </form>
                 <script>
