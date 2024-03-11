@@ -28,6 +28,12 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
 
                 <form action="index.php?controller=lote&action=save" method="post">
                     <div class="form-group">
+                        <label for="produto">Produto</label>
+                        <select name="produto" id="produto" class="form-control">
+                            <option value="teste">Teste</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="data_cadastro">Data Cadastro</label>
                         <input type="date" class="form-control" id="data_cadastro" name="data_cadastro"
                             placeholder="Insira a data da saida." required>
