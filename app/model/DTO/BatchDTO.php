@@ -37,7 +37,7 @@
       // Funções para adicionar dados do lote
       public function setCod(?string $cod):                    void { $this->cod = $cod; }
       public function setCreationDate(?string $creation_date): void { $this->creation_date = $creation_date; }
-      public function setIdInvoice(int $idinvoice):           void { $this->idinvoice = $idinvoice; }
+      public function setIdInvoice(int $idinvoice):            void { $this->idinvoice = $idinvoice; }
 
       // Funções para obter dados do lote
       public function getIdBatch():      ?int    { return $this->idbatch; }

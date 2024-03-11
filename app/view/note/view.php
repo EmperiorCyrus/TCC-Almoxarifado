@@ -2,9 +2,14 @@
 <html lang="pt-br">
 <head>
     <title>Visualizar Nota Fiscal</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="/sga//vendor/adminlte/dist/css/adminlte.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
+<body class="hold-transition">
     <div class="container">
         <h1>Visualizar Nota Fiscal</h1>
         <table class="table table-bordered">
