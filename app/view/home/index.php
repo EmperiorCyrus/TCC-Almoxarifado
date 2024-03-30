@@ -10,12 +10,12 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
 <?php include_once "app/view/components/head.php" ?>
 
 <!-- Título -->
-<h1 class="text-center text-xl font-weight-bold">S.G.A</h1>
-<p class="text-center text-lg font-weight-bold">Sistema de Gerenciamento de Almoxarifado</p>
+<h1 class="text-center text-xl font-weight-bold text-primary sga-text-outline-white">S.G.A</h1>
+<p class="text-center text-lg font-weight-bold text-white sga-text-outline-black">Sistema de Gerenciamento de Almoxarifado</p>
 <!-- TODO: Mudar esse texto aqui -->
 <div class="d-flex justify-content-center mb-4">
-  <div class="w-50 text-center border-bottom border-bottom-1 pb-4 text-gray font-weight-bold">
-    📦 Maximize a <span class="text-primary">eficiência</span> do seu almoxarifado com o nosso Sistema de Gerenciamento de Almoxarifado!
+  <div class="w-50 text-center border-bottom border-bottom-1 pb-4 text-white font-weight-bold sga-text-outline-black">
+    📦 Maximize a <span class="sga-text-outline-blue">eficiência</span> do seu almoxarifado com o nosso Sistema de Gerenciamento de Almoxarifado!
   </div>
 </div>
 

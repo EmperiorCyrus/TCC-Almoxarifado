@@ -1,5 +1,6 @@
 <!-- CONFIGURAÇÃO DA VIEW -->
 <?php
+  $title = "Perfil";
   $active = "perfil";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
   $navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
   $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
@@ -9,7 +10,7 @@
 <!-- BREADCRUMB -->
 <div class="d-flex flex-column">
   <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/">Início</a></li>
     <li class="breadcrumb-item active">Perfil</li>
   </ol>
   <h1 class="text-md-left text-sm-center pb-3 border-bottom">Perfil</h1>
@@ -45,12 +46,6 @@
             <label for="email">Email</label>
             <input type="text" class="form-control mb-3" value="<?= isset($email) ? $email : "Email" ?>" disabled
               id="email">
-          </div>
-          <div>
-            <!-- User password -->
-            <label for="password">Password</label>
-            <input type="password" class="form-control" value="<?= isset($password) ? $password : "Password" ?>"
-              disabled id="password">
           </div>
         </div>
       </div>
@@ -91,7 +86,7 @@
       <!-- Configurações -->
       <div class="tab-pane fade" id="vert-tabs-settings" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
         <h2 class="text-xl text-capitalize border-bottom pb-3">Configurações</h2>
-        <a href="" class="btn btn-outline-danger custom-sga-animation-hover mb-4">Log-out</a>
+        <a href="" class="btn btn-outline-danger custom-sga-animation-hover mb-4">Sair</a>
         <form action="#" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <button type="submit" class="btn btn-danger custom-sga-animation-hover">DELETAR CONTA!</button>

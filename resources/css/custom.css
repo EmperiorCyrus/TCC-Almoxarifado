@@ -1,4 +1,44 @@
+#imagem-de-fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-image: url("./../../assets/home-background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#imagem-de-fundo::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: radial-gradient(circle at center, transparent, black);
+}
+
 .custom-sga-animation-hover:hover {
   transform: scale(1.03);
   transition: all 0.3s;
+}
+
+.sga-text-outline-white {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.sga-text-outline-black {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.sga-text-outline-blue {
+  text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+}
+
+.sga-text-outline-none {
+  text-shadow: none;
 }
