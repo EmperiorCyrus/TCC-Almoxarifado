@@ -1,13 +1,11 @@
 <?php if (isset($footer) && $footer === true) { ?>
-  <footer class="main-footer fixed-bottom">
-    <!-- To the right -->
+  <!-- <footer class="main-footer fixed-bottom">
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      Senai Camaçari
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
-<?php } ?>
+    <strong>Copyright &copy; 2024 <a href="https://github.com/EmperiorCyrus/TCC-Almoxarifado/tree/master">TCC-Almoxarifado</a>.</strong>
+  </footer> -->
+<?php } ?>  
 </div>
 <!-- ./wrapper -->
 <!-- jQuery -->
