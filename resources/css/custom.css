@@ -1,4 +1,4 @@
 .custom-sga-animation-hover:hover {
   transform: scale(1.03);
-  transition: all .3s;
+  transition: all 0.3s;
 }
