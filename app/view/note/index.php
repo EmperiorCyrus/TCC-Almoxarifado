@@ -12,7 +12,7 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
         <!-- BREADCRUMB -->
         <div class="d-flex flex-column">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Início</a></li>
                 <li class="breadcrumb-item active">Notas Fiscais</li>
             </ol>
             <h1 class="mb-4">Lista de nota(s)</h1>

@@ -9,7 +9,7 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
 <!-- BREADCRUMB -->
 <div class="d-flex flex-column">
     <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/">Início</a></li>
         <li class="breadcrumb-item active"><a href="/produtos">Produtos</a>
         </li>
         <li class="breadcrumb-item active">Cadastrar</li>

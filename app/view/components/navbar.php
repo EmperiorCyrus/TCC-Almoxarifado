@@ -11,7 +11,7 @@
       <li class="nav-item <?= $active === 'home' ? 'active' : '' ?>">
         <a class="nav-link" href="/">
           <i class="bi bi-house-fill"></i>
-          Home
+          Início
         </a>
       </li>
       <li class="nav-item <?= $active === 'produtos' ? 'active' : '' ?>">
@@ -55,7 +55,7 @@
       <li class="nav-item">
         <a class="btn btn-danger" href="/logout">
           <i class="bi bi-box-arrow-left pr-2"></i>
-          Log-off
+          Sair
         </a>
       </li>
     </ul>
