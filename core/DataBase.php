@@ -11,7 +11,7 @@
     private $host = "localhost";
     private $name = "sga";
     private $user = "root";
-    private $key  = "";
+    private $key  = "password";
 
 
     /**
@@ -45,6 +45,6 @@
 
   }
 
-  //var_dump(database::connect());
+  // var_dump(database::connect());
 
 ?>

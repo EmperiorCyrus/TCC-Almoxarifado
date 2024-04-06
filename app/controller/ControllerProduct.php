@@ -15,7 +15,7 @@ class ControllerProduct
 
     public function __construct()
     {
-        // $this->ProductModel = new ModelProduct(); // Está dando um errozinho de driver na hora de mostrar a tela
+        $this->ProductModel = new ModelProduct(); // Está dando um errozinho de driver na hora de mostrar a tela
     }
 
     /**
@@ -48,10 +48,10 @@ class ControllerProduct
      *
      * @return void
      */
-    public static function index()
+    public function index()
     {
-        // return $this->ProductModel->selectAll();
-        return view("app/view/product/index.php");
+        $produtos = $this->ProductModel->get_all_info_product();
+        return view("app/view/product/index.php", ["produtos" => $produtos]);
     }
 
     public function selectById(int $id): ProductDTO

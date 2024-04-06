@@ -215,7 +215,7 @@
      * Recarregar, refazer comando SQL para adquirir dados atualizados sobre produto,
      * Além de encapsular todos os dados adiquiridos para uso futuros por outras functions.
      * 
-     * @return void
+     * @return array
      */
     private function reload_all_product() {
 
@@ -223,27 +223,32 @@
       
       $query = "SELECT * FROM produto";                             // Montando Query SQL
       $stmt  = $conn->prepare($query);                              // Preparando 
-      
+
+      $produtos = [];                                               // Array de produtos para melhor organização das chaves e valores #
+
       // Executando e encapsulando se houver uma execução.
       if ($stmt->execute()) {                                       
 
         
-        $count_row = 0;                                             // Contador de linhas
+        // $count_row = 0;                                           // Contador de linhas
         // Separando resultador por categoria
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {                                 
           
-          $this->id[$count_row]             = $row['id_produto'];   // Encapsulando resultado por sua categoria
-          $this->name[$count_row]           = $row['nome'];         // **
-          $this->brand[$count_row]          = $row['marca'];        // **
-          $this->supplier[$count_row]       = $row['fornecedor'];   // **
-          $this->category[$count_row]       = $row['categoria'];    // **
-          $this->disposable[$count_row]     = $row['descartavel'];  // **
-          $this->perishable[$count_row]     = $row['perecivel'];    // **
-          $this->validity[$count_row]       = $row['validade'];     // **
-          $this->storage[$count_row]        = $row['armazem'];      // **
-          $this->creation_date[$count_row]  = $row['atualizacao'];  // **
+          $produto = [                                               // Criando um produto inteiro para o array total de produtos #
+            "id"             => $row['id_produto'],                  // Encapsulando resultado por sua categoria
+            "name"           => $row['nome'],                        // **
+            "brand"          => $row['marca'],                       // **
+            "supplier"       => $row['idfornecedor'],                // **
+            "category"       => $row['idcategoria'],                 // **
+            "disposable"     => $row['descartavel'],                 // **
+            "perishable"     => $row['perecivel'],                   // **
+            "validity"       => $row['validade'],                    // **
+            "storage"        => $row['idarmazem'],                   // **
+            "creation_date"  => $row['data_criacao'],                // **
+          ];
 
-          $count_row++;                                             // Adição de linhas
+          $produtos[] = $produto;                                    // Adicionando novo produto no array de produtos #
+          // $count_row++;                                           // Adição de linhas
         }
 
       // Caso não houver uma execução bem-sucedida.
@@ -252,6 +257,7 @@
         // Exibir erro de falha de execução
       }
 
+      return $produtos;
     }
 
 
@@ -267,21 +273,10 @@
     public function get_all_info_product() {
 
       // Chama função para atualizar o encapsulamento com o BD
-      $this->reload_all_product();                            
-
-      // Montando Array com os valores encapsulado
-      $all_info = array(
-        'id'          => $this->id,             // Nomeando espaço do array equivalente ao valores recebidos
-        'name'        => $this->name,           // **
-        'brand'       => $this->brand,          // **
-        'supplier'    => $this->supplier,       // **
-        'category'    => $this->category,       // **
-        'disposable'  => $this->disposable,     // **
-        'perishable'  => $this->perishable,     // **
-        'validity'    => $this->validity,       // **
-        'storage'     => $this->storage,        // **
-        'date_update' => $this->creation_date   // **
-      );
+      // $this->reload_all_product();                            
+      
+      // Armazena os produtos para depois enviar para o front #
+      $all_info = $this->reload_all_product();
 
       // Retornando array
       return $all_info;

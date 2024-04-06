@@ -3,6 +3,8 @@
 $active = "produtos";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
 $navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
 $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
+
+// print_r($produtos);
 ?>
 
 <?php include "app/view/components/head.php" ?>
@@ -54,28 +56,31 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($notes as $note) {
+                    foreach ($produtos as $produto) {
                         ?>
                         <tr>
                             <td>
-                                <?= $note->getName(); ?>
+                                <?= $produto['name'] ?>
                             </td>
                             <td>
-                                <?= $note->getNumero(); ?>
+                                <?= $produto['brand'] ?>
                             </td>
                             <td>
-                                <?= $note->getDescription(); ?>
+                                <?= $produto['perishable'] ?>
                             </td>
                             <td>
-                                <a href="<?= $note->getPath(); ?>" target="_blank"> Arquivo </a>
+                                <?= $produto['disposable'] ?>
                             </td>
-                            <th>
-                                <?= $note->getCreation_date(); ?>
-                            </th>
                             <td>
-                                <a href="index.php?controller=ControllerInvoice&action=edit&id=<?= $note->getIdinvoice(); ?>"
+                                <?= $produto['validity'] ?>
+                            </td>
+                            <td>
+                                <?= $produto['creation_date'] ?>
+                            </td>
+                            <td>
+                                <a href="#"
                                     class="btn btn-primary">Editar</a>
-                                <a href="index.php?controller=ControllerInvoice&action=delete&id=<?= $note->getIdinvoice(); ?>"
+                                <a href="#"
                                     class="btn btn-danger">Excluir</a>
 
                             </td>

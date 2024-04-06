@@ -14,16 +14,33 @@ $router = new Router;
 //DEFINIR ROTAS UNICAS
 $router->route('GET', '/', [HomeController::class, 'index']);
 $router->route('GET', '/perfil', [HomeController::class, 'perfil']);
-$router->route('GET', '/produtos', [ControllerProduct::class, 'index']);
-$router->route('GET', '/produtos/criar', [ControllerProduct::class, 'create']);
-$router->route('GET', '/entradas', [ControllerEntrance::class, 'index']);
-$router->route('GET', '/entradas/criar', [ControllerEntrance::class, 'create']);
-$router->route('GET', '/lotes', [ControllerBatch::class, 'index']);
-$router->route('GET', '/lotes/criar', [ControllerBatch::class, 'create']);
-$router->route('GET', '/notas', [ControllerNote::class, 'index']);
-$router->route('GET', '/notas/criar', [ControllerNote::class, 'create']);
 $router->route('GET', '/saidas', [ControllerOutput::class, 'create']);
 $router->route('GET', '/saidas/criar', [ControllerOutput::class, 'create']);
+
+$router->group("/produtos", [
+  ['GET', '', [ControllerProduct::class, 'index']],
+  ['GET', '/criar', [ControllerProduct::class, 'create']],
+  ['POST', '', [ControllerProduct::class, 'save']],
+]);
+
+$router->group("/notas", [
+  ['GET', '', [ControllerNote::class, 'index']],
+  ['GET', '/criar', [ControllerNote::class, 'create']],
+  ['POST', '', [ControllerNote::class, 'save']],
+]);
+
+$router->group("/lotes", [
+  ['GET', '', [ControllerBatch::class, 'index']],
+  
+  ['GET', '/criar', [ControllerBatch::class, 'create']],
+  ['POST', '', [ControllerBatch::class, 'save']],
+]);
+
+$router->group("/entradas", [
+  ['GET', '', [ControllerEntrance::class, 'index']],
+  ['GET', '/criar', [ControllerEntrance::class, 'create']],
+  ['POST', '', [ControllerEntrance::class, 'save']],
+]);
 
 //DEFINIR AGRUPAMENTO DE ROTAS POR UM PREFIXO
 $router->group('/admin', [

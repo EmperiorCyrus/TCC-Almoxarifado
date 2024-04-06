@@ -35,9 +35,6 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                             Data de registro
                         </th>
                         <th>
-                            Código
-                        </th>
-                        <th>
                             Nota relacionada
                         </th>
                         <th>
@@ -47,28 +44,19 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($notes as $note) {
+                    foreach ($lotes as $lote) {
                         ?>
                         <tr>
                             <td>
-                                <?= $note->getName(); ?>
+                                <?= $lote['created_at']; ?>
                             </td>
                             <td>
-                                <?= $note->getNumero(); ?>
+                                <?= $lote['note']; ?>
                             </td>
                             <td>
-                                <?= $note->getDescription(); ?>
-                            </td>
-                            <td>
-                                <a href="<?= $note->getPath(); ?>" target="_blank"> Arquivo </a>
-                            </td>
-                            <th>
-                                <?= $note->getCreation_date(); ?>
-                            </th>
-                            <td>
-                                <a href="index.php?controller=ControllerInvoice&action=edit&id=<?= $note->getIdinvoice(); ?>"
+                                <a href="#"
                                     class="btn btn-primary">Editar</a>
-                                <a href="index.php?controller=ControllerInvoice&action=delete&id=<?= $note->getIdinvoice(); ?>"
+                                <a href="#"
                                     class="btn btn-danger">Excluir</a>
 
                             </td>
@@ -82,9 +70,6 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                     <tr>
                         <th>
                             Data de registro
-                        </th>
-                        <th>
-                            Código
                         </th>
                         <th>
                             Nota relacionada

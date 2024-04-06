@@ -229,20 +229,29 @@
     public function selectAll(): array {
 
       try {
-
-        $query = "SELECT * FROM lote";
-        $stmt  = $this->conn->prepare($query);
-        
-        
-        if ($result = $stmt->execute()) {
-
-          $batch_array = [];
-          while ($result = $stmt->feth(PDO::FETCH_ASSOC)) {
-
-            $batch = new BatchDTO($result['cod'], $result['data_criacao'], $result['idnota']);
-            $batch_array[intval($result['idlote'])] = $batch;
+        $conn = database::connect();                               // Conexão com o Banco de Dados.
+      
+        $query = "SELECT * FROM lote";                             // Montando Query SQL
+        $stmt  = $conn->prepare($query);                           // Preparando 
+  
+        $lotes = [];                                               // Array de lotes para melhor organização das chaves e valores #
+  
+        // Executando e encapsulando se houver uma execução.
+        if ($stmt->execute()) {                                       
+  
+          // Separando resultador por categoria
+          while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {                                 
+            
+            $lote = [                                             // Criando um lote inteiro para o array total de lotes #
+              "id"             => $row['idlote'],                 // Encapsulando resultado por sua categoria
+              "note"           => $row['idnota'],                 // **
+              "created_at"          => $row['data_cadastro'],     // **
+            ];
+  
+            $lotes[] = $lote;                                     // Adicionando novo lote no array de lotes #
           }
-          return $batch_array;
+
+          return $lotes;
         }
 
         //> Tratativa de erro relacionado ao Banco de Dados.
