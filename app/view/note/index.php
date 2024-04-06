@@ -52,28 +52,28 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($notes as $note) {
+                    foreach ($notas as $nota) {
                         ?>
                         <tr>
                             <td>
-                                <?= $note->getName(); ?>
+                                <?= $nota['name'] ?>
                             </td>
                             <td>
-                                <?= $note->getNumero(); ?>
+                                <?= $nota['id'] ?>
                             </td>
                             <td>
-                                <?= $note->getDescription(); ?>
+                                <?= $nota['description'] ?>
                             </td>
                             <td>
-                                <a href="<?= $note->getPath(); ?>" target="_blank"> Arquivo </a>
+                                <?= $nota['path'] ?>
                             </td>
-                            <th>
-                                <?= $note->getCreation_date(); ?>
-                            </th>
                             <td>
-                                <a href="index.php?controller=ControllerInvoice&action=edit&id=<?= $note->getIdinvoice(); ?>"
+                                <?= $nota['created_at'] ?>
+                            </td>
+                            <td>
+                                <a href="#"
                                     class="btn btn-primary">Editar</a>
-                                <a href="index.php?controller=ControllerInvoice&action=delete&id=<?= $note->getIdinvoice(); ?>"
+                                <a href="#"
                                     class="btn btn-danger">Excluir</a>
 
                             </td>
