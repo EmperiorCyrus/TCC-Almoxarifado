@@ -42,37 +42,31 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                             Valor
                         </th>
                         <th>
-                            Data registro
-                        </th>
-                        <th>
                             Ações
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($notes as $note) {
+                    foreach ($entradas as $entrada) {
                         ?>
                         <tr>
                             <td>
-                                <?= $note->getName(); ?>
+                                <?= $entrada['productid'] ?>
                             </td>
                             <td>
-                                <?= $note->getNumero(); ?>
+                                <?= $entrada['quantity'] ?>
                             </td>
                             <td>
-                                <?= $note->getDescription(); ?>
+                                <?= $entrada['validity'] ?>
                             </td>
                             <td>
-                                <a href="<?= $note->getPath(); ?>" target="_blank"> Arquivo </a>
+                                <?= $entrada['value'] ?>
                             </td>
-                            <th>
-                                <?= $note->getCreation_date(); ?>
-                            </th>
                             <td>
-                                <a href="index.php?controller=ControllerInvoice&action=edit&id=<?= $note->getIdinvoice(); ?>"
+                                <a href=""
                                     class="btn btn-primary">Editar</a>
-                                <a href="index.php?controller=ControllerInvoice&action=delete&id=<?= $note->getIdinvoice(); ?>"
+                                <a href="#"
                                     class="btn btn-danger">Excluir</a>
 
                             </td>
@@ -95,9 +89,6 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                         </th>
                         <th>
                             Valor
-                        </th>
-                        <th>
-                            Data registro
                         </th>
                         <th>
                             Ações

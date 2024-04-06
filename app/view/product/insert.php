@@ -27,7 +27,7 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
             <!-- /.card-header -->
             <div class="card-body">
 
-                <form action="index.php?controller=lote&action=save" method="post">
+                <form action="/produtos" method="post">
                     <div class="form-group">
                         <label for="nome">Nome</label>
                         <input type="text" class="form-control" id="nome" name="nome"
@@ -50,7 +50,7 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                             placeholder="Informe se o produto é descartavel">
                         <label for="descartavel">Descartavel</label>
                     </div>
-                    <button type="submit" onclick="validateForm()" class="btn btn-primary">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </form>
                 <script>
                     // Valida o nome da nota fiscal

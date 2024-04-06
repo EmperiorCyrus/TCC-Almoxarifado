@@ -209,24 +209,32 @@
 
     //> Analiza execuções dentro da função de possiveis erros e falha.
     try { 
-      // Querys para obter ID da nota antes de ser atualizado
-      $query = "SELECT * FROM entrada";
-      $stmt  = $this->conn->prepare($query);                                                          // Preparando sintaxe
+      $conn = database::connect();                                   // Conexão com o Banco de Dados.
       
-      // Verificando se há execução bem-sucedida
-      if ($stmt->execute()) {
+        $query = "SELECT * FROM entrada";                               // Montando Query SQL
+        $stmt  = $conn->prepare($query);                             // Preparando 
   
-        $entrances = [];                                                    // Declarando Array para guardar conteudo do SQL 
-        while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          
+        $entradas = [];                                              // Array de entradas para melhor organização das chaves e valores #
+  
+        // Executando e encapsulando se houver uma execução.
+        if ($stmt->execute()) {                                       
+  
+          // Separando resultador por categoria
+          while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {                                 
+            
+            $entrada = [                                             // Criando um entrada inteiro para o array total de entradas #
+              "batchid"             => $row['ldlote'],               // Encapsulando resultado por sua categoria
+              "productid"           => $row['idproduto'],            // **
+              "quantity"            => $row['quantidade'],           // **
+              "validity"            => $row['validade'],             // **
+              "value"               => $row['valor'],                // **
+            ];
+  
+            $entradas[] = $entrada;                                  // Adicionando novo entrada no array de entradas #
+          }
 
-          $content = new EntranceDTO($result['idproduto'], $result['idlote'], $result['quantidade'], $result['validade'], $result['valor']);
-          $entrances[intval($result['identrada'])] = $content;
+          return $entradas;
         }
-
-        // Colocar LOG de GET ALL.
-        return $entrances;
-      }
 
 
     //> Tratativa de erro relacionado ao Banco de Dados.

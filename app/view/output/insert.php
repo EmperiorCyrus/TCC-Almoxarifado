@@ -26,7 +26,7 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
             <!-- /.card-header -->
             <div class="card-body">
 
-                <form action="index.php?controller=lote&action=save" method="post">
+                <form action="/saidas/criar" method="post">
                     <div class="form-group">
                         <label for="produto">Produto</label>
                         <select name="produto" id="produto" class="form-control">

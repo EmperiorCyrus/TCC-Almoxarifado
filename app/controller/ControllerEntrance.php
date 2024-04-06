@@ -10,7 +10,7 @@ class ControllerEntrance
 
     public function __construct()
     {
-        // $this->entranceModel = new ModelEntrance();  // Está dando um errozinho de driver na hora de mostrar a tela
+        $this->entranceModel = new ModelEntrance();  // Está dando um errozinho de driver na hora de mostrar a tela
     }
 
     /**
@@ -20,7 +20,9 @@ class ControllerEntrance
    */
     public function index()
     {
-        return view("app/view/entrance/index.php");
+        $entradas = $this->entranceModel->selectAll();
+
+        return view("app/view/entrance/index.php", ["entradas" => $entradas]);
     }
 
     /**

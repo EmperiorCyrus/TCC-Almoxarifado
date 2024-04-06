@@ -1,6 +1,6 @@
 <!-- CONFIGURAÇÃO DA VIEW -->
 <?php
-$active = "notas";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
+$active = "saidas";  // CONFIGURA O ESTADO ATIVO DA NAVBAR COM BASE NA PÁGINA ATUAL
 $navbar = true;    // CONFIGURA A APARIÇÃO DA NAVBAR NESTA PÁGINA ESPECÍFICA
 $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
 ?>
@@ -13,15 +13,15 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
         <div class="d-flex flex-column">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="/">Início</a></li>
-                <li class="breadcrumb-item active">Notas Fiscais</li>
+                <li class="breadcrumb-item active">Saídas</li>
             </ol>
-            <h1 class="mb-4">Lista de nota(s)</h1>
+            <h1 class="mb-4">Lista de saída(s)</h1>
         </div>
 
         <!-- Botão de cadastrar -->
         <div class="d-flex justify-content-start">
-            <!-- TODO: MUDAR O LINK DESSE BOTÃO PARA O LUGAR QUE CRIA NOTAS -->
-            <button type="button" onclick="window.location.href='/notas/criar'"
+            <!-- TODO: MUDAR O LINK DESSE BOTÃO PARA O LUGAR QUE CRIA SAÍDAS -->
+            <button type="button" onclick="window.location.href='/saidas/criar'"
                 class="btn btn-success mb-4">Cadastrar</button>
         </div>
 
@@ -31,19 +31,19 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                 <thead>
                     <tr>
                         <th>
-                            Nome
+                            Data da Saida
                         </th>
                         <th>
-                            Numero
+                            Produto
                         </th>
                         <th>
-                            Descrição
+                            Quantidade
                         </th>
                         <th>
-                            Arquivo
+                            Emprestimo
                         </th>
                         <th>
-                            Data de registro
+                            Solicitacao
                         </th>
                         <th>
                             Ações
@@ -52,23 +52,23 @@ $footer = true;    // CONFIGURA A APARIÇÃO DO FOOTER NESTA PÁGINA ESPECÍFICA
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($notas as $nota) {
+                    foreach ($saidas as $saida) {
                         ?>
                         <tr>
                             <td>
-                                <?= $nota['name'] ?>
+                                <?= $saida['output_date'] ?>
                             </td>
                             <td>
-                                <?= $nota['id'] ?>
+                                <?= $saida['idproduto'] ?? "Sem produto" ?>
                             </td>
                             <td>
-                                <?= $nota['description'] ?>
+                                <?= $saida['quantity'] ?>
                             </td>
                             <td>
-                                <?= $nota['path'] ?>
+                                <?= $saida['idemprestimo'] ?>
                             </td>
                             <td>
-                                <?= $nota['created_at'] ?>
+                                <?= $saida['idsolicitacao'] ?>
                             </td>
                             <td>
                                 <a href="#"

@@ -10,7 +10,7 @@ class ControllerBatch
 
     public function __construct()
     {
-        // $this->batchModel = new ModelBatch();
+        $this->batchModel = new ModelBatch();
     }
 
     /**
@@ -30,7 +30,9 @@ class ControllerBatch
      */
     public function index()
     {
-        return view("app/view/batch/index.php");
+        $lotes = $this->batchModel->selectAll();
+
+        return view("app/view/batch/index.php", ["lotes" => $lotes]);
     }
 
     public function insert(BatchDTO $batch): bool
