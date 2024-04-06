@@ -14,8 +14,6 @@ $router = new Router;
 //DEFINIR ROTAS UNICAS
 $router->route('GET', '/', [HomeController::class, 'index']);
 $router->route('GET', '/perfil', [HomeController::class, 'perfil']);
-$router->route('GET', '/saidas', [ControllerOutput::class, 'create']);
-$router->route('GET', '/saidas/criar', [ControllerOutput::class, 'create']);
 
 $router->group("/produtos", [
   ['GET', '', [ControllerProduct::class, 'index']],
@@ -40,6 +38,12 @@ $router->group("/entradas", [
   ['GET', '', [ControllerEntrance::class, 'index']],
   ['GET', '/criar', [ControllerEntrance::class, 'create']],
   ['POST', '', [ControllerEntrance::class, 'save']],
+]);
+
+$router->group("/saidas", [
+  ['GET', '', [ControllerOutput::class, 'index']],
+  ['GET', '/criar', [ControllerOutput::class, 'create']],
+  ['POST', '', [ControllerOutput::class, 'save']],
 ]);
 
 //DEFINIR AGRUPAMENTO DE ROTAS POR UM PREFIXO
